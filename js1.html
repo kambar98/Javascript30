@@ -37,50 +37,52 @@
             Pierwsze wyzwanie polega na stworzeniu perkusji reagującej na przyciskane klawisze.
             Poniżej widzimy wykonane przeze mnie zadanie:
         </p>
-       <div class="container bg-primary my-3" id="challenge1Container">
-           <div class="container" id="drumCollection" style="padding:1rem; display:flex;">
-               <div class="drumDiv">
-                   <div class="drumCharacter">
-                       A
-                   </div>
-                   <div class="drumSound">
-                       CLAP
-                   </div>
-               </div>
-               <div class="drumDiv">
-                   <div class="drumCharacter">
-                       S
-                   </div>
-                   <div class="drumSound">
-                       HIHAT
-                   </div>
-               </div>
-               <div class="drumDiv">
-                   <div class="drumCharacter">
-                       D
-                   </div>
-                   <div class="drumSound">
-                       KICK
-                   </div>
-               </div>
-               <div class="drumDiv">
-                   <div class="drumCharacter">
-                       F
-                   </div>
-                   <div class="drumSound">
-                       OPENHAT
-                   </div>
-               </div>
-               <div class="drumDiv">
-                   <div class="drumCharacter">
-                       G
-                   </div>
-                   <div class="drumSound">
-                       BOOM
-                   </div>
-               </div>
-           </div>
-       </div>
+        <div class="container bg-primary my-3" id="challenge1Container">
+            <div class="container" id="drumCollection" style="padding:1rem; display:flex;">
+                <div class="drumDiv" onclick="pressedA();" id="A">
+                    <div class="drumCharacter">
+                        A
+                    </div>
+                    <div class="drumSound">
+                        CLAP
+                    </div>
+                    <audio></audio>
+                </div>
+                <div class="drumDiv" onclick="pressedS();" id="S">
+                    <div class="drumCharacter">
+                        S
+                    </div>
+                    <div class="drumSound">
+                        HIHAT
+                    </div>
+                </div>
+                <div class="drumDiv" onclick="pressedD();" id="D">
+                    <div class="drumCharacter">
+                        D
+                    </div>
+                    <div class="drumSound">
+                        KICK
+                    </div>
+                </div>
+                <div class="drumDiv" onclick="pressedF();" id="F">
+                    <div class="drumCharacter">
+                        F
+                    </div>
+                    <div class="drumSound">
+                        OPENHAT
+                    </div>
+                </div>
+                <div class="drumDiv" onclick="pressedG();" id="G">
+                    <div class="drumCharacter">
+                        G
+                    </div>
+                    <div class="drumSound">
+                        BOOM
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <p style="text-indent:1rem;margin-bottom:0;">
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
@@ -88,6 +90,11 @@
             sdasdadsa
         </div>
     </div>
+    <audio id="boom" src="drumSound/boom.wav"></audio>
+    <audio id="clap" src="drumSound/clap.wav"></audio>
+    <audio id="hihat" src="drumSound/hihat.wav"></audio>
+    <audio id="kick" src="drumSound/kick.wav"></audio>
+    <audio id="openhat" src="drumSound/openhat.wav"></audio>
 
 </body>
 </html>
