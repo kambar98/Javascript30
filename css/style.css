@@ -1,3 +1,4 @@
+/* Index.html */
 #dropdown {
     min-width: 30rem;
     position: absolute;
@@ -70,5 +71,46 @@
         position: relative;
         top: 1px;
     }
+/*End*/  
 
-        
+/*Challenge1*/
+.drumDiv {
+    width: 5rem;
+    height: 5rem;
+    border: solid 2px #00ff00;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    background-color: #262626;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.drumCharacter{
+    font-size:24px;
+    font-weight:600;
+}
+
+.drumSound{
+ color:orange;
+}
+#challenge1Container{
+    border-radius:0.5rem;
+}
+
+.drumDiv:hover {
+    background-color: #595959;
+    border: solid 2px #00b300;
+}
+
+@media screen and (max-width: 420px) {
+    #drumCollection {
+        flex-direction:column !important;
+    }
+
+    .drumDiv{
+        margin-top:1rem;
+        margin-bottom:1rem;
+    }
+}
