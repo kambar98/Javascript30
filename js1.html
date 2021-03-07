@@ -37,7 +37,7 @@
             Pierwsze wyzwanie polega na stworzeniu perkusji reagującej na przyciskane klawisze.
             Poniżej widzimy wykonane przeze mnie zadanie:
         </p>
-        <div class="container bg-primary my-3" id="challenge1Container">
+        <div class="container my-3"  id="challenge1Container">
             <div class="container" id="drumCollection" style="padding:1rem; display:flex;">
                 <div class="drumDiv" onclick="pressedA();" id="A">
                     <div class="drumCharacter">
@@ -86,8 +86,83 @@
         <p style="text-indent:1rem;margin-bottom:0;">
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
-        <div class="container bg-warning" id="challenge1Code">
-            sdasdadsa
+        <div class="container my-3 p-2" id="challengeCode">
+            if (window.location.pathname == '/js1.html') {
+            var clapSound = document.getElementById('clap');
+            var hihatSound = document.getElementById('hihat');
+            var kickSound = document.getElementById('kick');
+            var openhatSound = document.getElementById('openhat');
+            var boomSound = document.getElementById('boom');
+            function pressedA() {
+            clapSound.currentTime = 0;
+            clapSound.play();
+            document.getElementById("A").style.background = "#595959";
+            setTimeout(function () {
+            document.getElementById("A").style.background = "#262626";
+            }, 100);
+
+            };
+            function pressedS() {
+            hihatSound.currentTime = 0;
+            hihatSound.play();
+            document.getElementById("S").style.background = "#595959";
+            setTimeout(function () {
+            document.getElementById("S").style.background = "#262626";
+            }, 100);
+
+            };
+            function pressedD() {
+            kickSound.currentTime = 0;
+            kickSound.play();
+            document.getElementById("D").style.background = "#595959";
+            setTimeout(function () {
+            document.getElementById("D").style.background = "#262626";
+            }, 100);
+
+            };
+            function pressedF() {
+            openhatSound.currentTime = 0;
+            openhatSound.play();
+            document.getElementById("F").style.background = "#595959";
+            setTimeout(function () {
+            document.getElementById("F").style.background = "#262626";
+            }, 100);
+
+            };
+            function pressedG() {
+            boomSound.currentTime = 0;
+            boomSound.play();
+            document.getElementById("G").style.background = "#595959";
+            setTimeout(function () {
+            document.getElementById("G").style.background = "#262626";
+            }, 100);
+
+            };
+            window.addEventListener("keypress", drumFunction);
+            function drumFunction(evt) {
+
+            if (evt.keyCode === 97) {
+            pressedA();
+            }
+            else if (evt.keyCode === 115) {
+            pressedS();
+            }
+            else if (evt.keyCode === 100) {
+            pressedD();
+            }
+            else if (evt.keyCode === 102) {
+            pressedF();
+            }
+
+            else if (evt.keyCode === 103) {
+            pressedG();
+            }
+
+            else 
+            return ;
+            };
+            };
+
         </div>
     </div>
     <audio id="boom" src="drumSound/boom.wav"></audio>
