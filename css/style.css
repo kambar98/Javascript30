@@ -107,7 +107,7 @@
 .drumSound{
  color:orange;
 }
-#challenge1Container{
+#challengeContainer{
     border-radius:0.5rem;
 }
 @media screen and (max-width: 420px) {
@@ -121,6 +121,9 @@
     }
 }
 
-#challenge1Container{
+#challengeContainer{
     background-color:dimgray;
 }
+/*End of 1 challenge*/
+
+/*Challenge 2*/
