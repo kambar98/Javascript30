@@ -36,15 +36,49 @@
         <p style="text-indent:1rem;margin-bottom:0;">
             Wyzwanie 2 polega na stworzeniu zegara
         </p>
-        <div class="container my-3" id="challengeContainer">
-         
+        <div class="container my-3 p-3" id="challengeContainer">
+            <div id="clock">
+                <div id="firstCircle">
+                    <div class="hand hour" id="hour">s</div>
+                    <div class="hand minute" id="minute"></div>
+                    <div class="hand second" id="second"></div>
+                    <div class="number number1">1</div>
+                    <div class="number number2">2</div>
+                    <div class="number number3">3</div>
+                    <div class="number number4">4</div>
+                    <div class="number number5">5</div>
+                    <div class="number number6">6</div>
+                    <div class="number number7">7</div>
+                    <div class="number number8">8</div>
+                    <div class="number number9">9</div>
+                    <div class="number number10">10</div>
+                    <div class="number number11">11</div>
+                    <div class="number number11">11</div>
+                    <div class="number number12">12</div>
+                </div>
+            </div>
         </div>
 
         <p style="text-indent:1rem;margin-bottom:0;">
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
         <div class="container my-3 p-2" id="challengeCode">
-          
+            if (window.location.pathname == '/js2.html') {
+            setInterval(setClock, 1000);
+            const hourHand = document.getElementById("hour");
+            const minuteHand = document.getElementById("minute");
+            const secondHand = document.getElementById("second");
+            function setClock() {
+            const currentDate = new Date();
+            const currentSecond = currentDate.getSeconds();
+            const currentMinutes = ((currentSecond / 60) + currentDate.getMinutes());
+            const currentHour = ((currentMinutes / 60) + currentDate.getHours());
+            secondHand.style.transform = "rotate(calc(" + currentSecond + "* 6deg))";
+            minuteHand.style.transform = "rotate(calc(" + currentMinutes + "* 6deg))";
+            hourHand.style.transform = "rotate(calc(" + currentHour + "* 30deg))";
+            }
+            setClock();
+            }
         </div>
     </div>
 
