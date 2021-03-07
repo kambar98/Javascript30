@@ -32,7 +32,7 @@ function highlight() {
         scriptCon.innerHTML = "";
 
         for (var i = 0; i < words.length; i++) {
-            if (words[i] === "function" || words[i] === "if" || words[i] === "for" || words[i] === "var" || words[i] === "else" || words[i] === "return") {
+            if (words[i] === "function" || words[i] === "if" || words[i] === "for" || words[i] === "var" || words[i] === "else" || words[i] === "return" || words[i] === "const") {
                     words.splice(i, 0, "<span class='jsWord'>");
                     words.splice(i + 2, 0, '</span>');
                     if (words[i] === "<span class='jsWord'>" || words[i] === "</span") {
@@ -48,7 +48,7 @@ function highlight() {
 
 // End of function
 
-//drum sound functions
+//drum sound functions, challegne 1
 if (window.location.pathname == '/js1.html') {
     var clapSound = document.getElementById('clap');
     var hihatSound = document.getElementById('hihat');
@@ -123,4 +123,23 @@ if (window.location.pathname == '/js1.html') {
     };
 };
 
-//End of functiona
+//End of function
+//Clock, challenge 2
+if (window.location.pathname == '/js2.html') {
+    setInterval(setClock, 1000);
+    const hourHand = document.getElementById("hour");
+    const minuteHand = document.getElementById("minute");
+    const secondHand = document.getElementById("second");
+    function setClock() {
+        const currentDate = new Date();
+        const currentSecond = currentDate.getSeconds();
+        const currentMinutes = ((currentSecond / 60) + currentDate.getMinutes());
+        const currentHour = ((currentMinutes / 60) + currentDate.getHours());
+        secondHand.style.transform = "rotate(calc(" + currentSecond + "* 6deg))";
+        minuteHand.style.transform = "rotate(calc(" + currentMinutes + "* 6deg))";
+        hourHand.style.transform = "rotate(calc(" + currentHour + "* 30deg))";
+    }
+    setClock();
+}
+
+//end of function, challenge 2
