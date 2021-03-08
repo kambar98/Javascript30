@@ -203,3 +203,24 @@
     background: red;
     transform: translateX(-50%);
 }
+/*End of challenge2*/
+
+/*Challenge3*/
+#challenge3Img {
+    margin: 2rem;
+    padding: 0;
+    filter: blur(0);
+    border:10px solid blue;
+}
+
+
+#controls {
+    align-items: center;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    line-height: 1rem;
+    font-size: 20px;
+    font-family:monospace;
+}
+/*End of challenge3*/

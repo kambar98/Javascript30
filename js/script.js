@@ -143,3 +143,16 @@ if (window.location.pathname == '/js2.html') {
 }
 
 //end of function, challenge 2
+
+// Update CSS variables, challenge 3
+if (window.location.pathname == '/js3.html') {
+    const blur = document.getElementById("blur");
+    const spacing = document.getElementById("spacing");
+    const backgroundColor = document.getElementById("backgroundColor");
+    const img = document.getElementById("challenge3Img");
+    function changeProperty() {
+        img.style = "border:" + spacing.value + "px solid " + backgroundColor.value + ";filter: blur(" + (blur.value)/10 + "px);";
+    };
+    changeProperty();
+};
+//End of function, challenge 3
