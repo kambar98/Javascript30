@@ -32,18 +32,40 @@
     </div>
 
     <div class="container p-3 bg-dark " style=" border-radius: 2rem; color:#e6e6e6 ">
-        <h1 style="text-align:center"> Challenge  : </h1>
-        <p style="text-indent:1rem;margin-bottom:0;">
+        <h1 style="text-align:center"> Challenge 3: Update CSS Variables with JS</h1>
+        <p style="text-indent:1rem;margin-bottom:0;"> W danym zadaniu należy stworzyć komponenty za pomocą których można wpłynąć na właściwości obrazu
         </p>
-        <div class="container my-3" id="challengeContainer">
-
+        <div class="container my-3" id="challengeContainer" style=" display: flex; flex-direction: column;">
+            <div class="container p-3 m-3" style="display: flex;">
+                <div id="controls">
+                    <label for="blur">Blur:</label>
+                    <input type="range" name="blur" min="0" max="200" value="0" id="blur" onchange="changeProperty();"/>
+                    <label for="spacing">Spacing:</label>
+                    <input type="range" name="spacing" min="0" max="200" value="0" id="spacing" onchange="changeProperty();" />
+                    <label for="backgrounColor">Color:</label>
+                    <input type="color" name="backgroundColor" value="#000000" style=" width: 5rem; height: 3rem;" id="backgroundColor" onchange="changeProperty();"/>
+                </div>
+            </div>
+            
+                <img src="img/challenge3.jpg" id="challenge3Img">
+            
+            
         </div>
 
         <p style="text-indent:1rem;margin-bottom:0;">
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
         <div class="container my-3 p-2" id="challengeCode">
-
+            if (window.location.pathname == '/js3.html') {
+            const blur = document.getElementById("blur");
+            const spacing = document.getElementById("spacing");
+            const backgroundColor = document.getElementById("backgroundColor");
+            const img = document.getElementById("challenge3Img");
+            function changeProperty() {
+            img.style = "border:" + spacing.value + "px solid " + backgroundColor.value + ";filter: blur(" + (blur.value)/10 + "px);";
+            };
+            changeProperty();
+            };
         </div>
     </div>
 
