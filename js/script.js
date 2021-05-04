@@ -1,158 +1,202 @@
-window.onload = function ()
-{
+    window.onload = function ()
+    {
     // function that adding pages to dropdown
     var j = 0;
     var numberOfPages = 31;
     document.getElementById("dropdown-row").innerHTML += "<div class='col-xs-4' id='colRow" + j + "'" + "></div>";
     for (var i = 1; i < (numberOfPages); i++)
     {
-        if (((i % 10) === 0) && (i < (numberOfPages - 1)))
-        {
-            document.getElementById("dropdown-row").innerHTML += "<div class='col-xs-4' id='colRow" + (i / 10) + "'" + "></div>";
-            document.getElementById("colRow" + j).innerHTML += "<a class='dropdown-item' href=" + "'js" + i + ".html'" + ">Wyzwanie " + i + "</a >";
-            j++;
-        }
-        else
-        {
+    if (((i % 10) === 0) && (i < (numberOfPages - 1)))
+    {
+    document.getElementById("dropdown-row").innerHTML += "<div class='col-xs-4' id='colRow" + (i / 10) + "'" + "></div>";
+    document.getElementById("colRow" + j).innerHTML += "<a class='dropdown-item' href=" + "'js" + i + ".html'" + ">Wyzwanie " + i + "</a >";
+    j++;
+    }
+    else
+    {
 
-            document.getElementById("colRow" + j).innerHTML += "<a class='dropdown-item' href=" + "'js" + i + ".html'" + ">Wyzwanie " + i + "</a >";
-        }
+    document.getElementById("colRow" + j).innerHTML += "<a class='dropdown-item' href=" + "'js" + i + ".html'" + ">Wyzwanie " + i + "</a >";
+    }
     }
     // End of function
     highlight();
     
-};
+    };
 
-//function which add color to special words of Javascript
+    //function which add color to special words of Javascript
 
-function highlight() {
+    function highlight() {
     if (window.location.pathname != '/index.html') {
-        var scriptCon = document.getElementById("challengeCode");
-        var words = scriptCon.textContent.split(" ");
-        scriptCon.innerHTML = "";
+    var scriptCon = document.getElementById("challengeCode");
+    var words = scriptCon.textContent.split(" ");
+    scriptCon.innerHTML = "";
 
-        for (var i = 0; i < words.length; i++) {
-            if (words[i] === "function" || words[i] === "if" || words[i] === "for" || words[i] === "var" || words[i] === "else" || words[i] === "return" || words[i] === "const") {
-                    words.splice(i, 0, "<span class='jsWord'>");
-                    words.splice(i + 2, 0, '</span>');
-                    if (words[i] === "<span class='jsWord'>" || words[i] === "</span") {
-                        i++;
-                    };
-                }
+    for (var i = 0; i < words.length; i++)
+    {
+    if (words[i] === "function" || words[i] === "if" || words[i] === "for" || words[i] === "var" || words[i] === "else" || words[i] === "return" || words[i] === "const") {
+    words.splice(i, 0, "<span class='jsWord'>");
+    words.splice(i + 2, 0, '</span>');
+    if (words[i] === "<span class='jsWord'>" || words[i] === "</span") {
+        i++;
+    };
+    } else if (words[i].slice(0, 6) === "window" || words[i].slice(0, 8) === "document") {
+        var obj = words[i].split(".");
+
+        obj[0] = "<span class='jsWord'>" + obj[0] + '</span>';
+        if (obj[obj.length - 1].indexOf(";") > 0) {
+            obj[obj.length - 1] = obj[obj.length - 1] + "<br>";
+        }
+        if (words[i] === "<span class='jsWord'>" || words[i] === "</span") {
+            i++;
         };
+        words[i] = obj.join(".");
+    } else if (words[i].slice(0, 10) === "setTimeout" || words[i].slice(0, 11) === "setInterval" || words[i].slice(1, 7) === "window") {
+        var obj = words[i].split("(");
+        if (obj[1].slice(0, 6) === "window") {
+           var temp_obj = obj[1].split(".");
+            temp_obj[0] = "<span class='jsWord'>" + temp_obj[0] + '</span>';
+            obj[1] = temp_obj.join(".");
+        }
+        if (obj[0].length) {
+            obj[0] = "<span class='jsWord'>" + obj[0] + '</span>';
+        }
+        if (obj[1] == "function") {
+            obj[1] = "<span class='jsWord'>" + obj[1] + '</span>';
+        }
+        if (obj[obj.length - 1].indexOf(";") > 0) {
+            obj[obj.length - 1] = obj[obj.length - 1] + "<br>";
+        }
+        if (words[i] === "<span class='jsWord'>" || words[i] === "</span") {
+            i++;
+        };
+        words[i] = obj.join("(");
+    }
+    else {
+    for (var j = 0; j < words[i].length; j++)
+    {   
+
+        if (words[i][j] == ';' ) {
+            var obj = words[i].split();
+            obj.push("<br>");
+            words[i] = obj.join(" ");
+        } 
+    }
+    }
+
+    };
     }
     else
-        return;
+    return;
     return scriptCon.innerHTML = words.join(" ");
-};
+    };
 
-// End of function
+    // End of function
 
-//drum sound functions, challegne 1
-if (window.location.pathname == '/js1.html') {
+    //drum sound functions, challegne 1
+    if (window.location.pathname == '/js1.html') {
     var clapSound = document.getElementById('clap');
     var hihatSound = document.getElementById('hihat');
     var kickSound = document.getElementById('kick');
     var openhatSound = document.getElementById('openhat');
     var boomSound = document.getElementById('boom');
     function pressedA() {
-        clapSound.currentTime = 0;
-        clapSound.play();
-        document.getElementById("A").style.background = "#595959";
-        setTimeout(function () {
-            document.getElementById("A").style.background = "#262626";
-        }, 100);
+    clapSound.currentTime = 0;
+    clapSound.play();
+    document.getElementById("A").style.background = "#595959";
+    setTimeout(function () {
+    document.getElementById("A").style.background = "#262626";
+    }, 100);
 
     };
     function pressedS() {
-        hihatSound.currentTime = 0;
-        hihatSound.play();
-        document.getElementById("S").style.background = "#595959";
-        setTimeout(function () {
-            document.getElementById("S").style.background = "#262626";
-        }, 100);
+    hihatSound.currentTime = 0;
+    hihatSound.play();
+    document.getElementById("S").style.background = "#595959";
+    setTimeout(function () {
+    document.getElementById("S").style.background = "#262626";
+    }, 100);
 
     };
     function pressedD() {
-        kickSound.currentTime = 0;
-        kickSound.play();
-        document.getElementById("D").style.background = "#595959";
-        setTimeout(function () {
-            document.getElementById("D").style.background = "#262626";
-        }, 100);
+    kickSound.currentTime = 0;
+    kickSound.play();
+    document.getElementById("D").style.background = "#595959";
+    setTimeout(function () {
+    document.getElementById("D").style.background = "#262626";
+    }, 100);
 
     };
     function pressedF() {
-        openhatSound.currentTime = 0;
-        openhatSound.play();
-        document.getElementById("F").style.background = "#595959";
-        setTimeout(function () {
-            document.getElementById("F").style.background = "#262626";
-        }, 100);
+    openhatSound.currentTime = 0;
+    openhatSound.play();
+    document.getElementById("F").style.background = "#595959";
+    setTimeout(function () {
+    document.getElementById("F").style.background = "#262626";
+    }, 100);
 
     };
     function pressedG() {
-        boomSound.currentTime = 0;
-        boomSound.play();
-        document.getElementById("G").style.background = "#595959";
-        setTimeout(function () {
-            document.getElementById("G").style.background = "#262626";
-        }, 100);
+    boomSound.currentTime = 0;
+    boomSound.play();
+    document.getElementById("G").style.background = "#595959";
+    setTimeout(function () {
+    document.getElementById("G").style.background = "#262626";
+    }, 100);
 
     };
     window.addEventListener("keypress", drumFunction);
     function drumFunction(evt) {
 
-        if (evt.keyCode === 97) {
-            pressedA();
-        }
-        else if (evt.keyCode === 115) {
-            pressedS();
-        }
-        else if (evt.keyCode === 100) {
-            pressedD();
-        }
-        else if (evt.keyCode === 102) {
-            pressedF();
-        }
-        else if (evt.keyCode === 103) {
-            pressedG();
-        }
-        else
-            return;
+    if (evt.keyCode === 97) {
+    pressedA();
+    }
+    else if (evt.keyCode === 115) {
+    pressedS();
+    }
+    else if (evt.keyCode === 100) {
+    pressedD();
+    }
+    else if (evt.keyCode === 102) {
+    pressedF();
+    }
+    else if (evt.keyCode === 103) {
+    pressedG();
+    }
+    else
+    return;
     };
-};
+    };
 
-//End of function
-//Clock, challenge 2
-if (window.location.pathname == '/js2.html') {
+    //End of function
+    //Clock, challenge 2
+    if (window.location.pathname == '/js2.html') {
     setInterval(setClock, 1000);
     const hourHand = document.getElementById("hour");
     const minuteHand = document.getElementById("minute");
     const secondHand = document.getElementById("second");
     function setClock() {
-        const currentDate = new Date();
-        const currentSecond = currentDate.getSeconds();
-        const currentMinutes = ((currentSecond / 60) + currentDate.getMinutes());
-        const currentHour = ((currentMinutes / 60) + currentDate.getHours());
-        secondHand.style.transform = "rotate(calc(" + currentSecond + "* 6deg))";
-        minuteHand.style.transform = "rotate(calc(" + currentMinutes + "* 6deg))";
-        hourHand.style.transform = "rotate(calc(" + currentHour + "* 30deg))";
+    const currentDate = new Date();
+    const currentSecond = currentDate.getSeconds();
+    const currentMinutes = ((currentSecond / 60) + currentDate.getMinutes());
+    const currentHour = ((currentMinutes / 60) + currentDate.getHours());
+    secondHand.style.transform = "rotate(calc(" + currentSecond + "* 6deg))";
+    minuteHand.style.transform = "rotate(calc(" + currentMinutes + "* 6deg))";
+    hourHand.style.transform = "rotate(calc(" + currentHour + "* 30deg))";
     }
     setClock();
-}
+    }
 
-//end of function, challenge 2
+    //end of function, challenge 2
 
-// Update CSS variables, challenge 3
-if (window.location.pathname == '/js3.html') {
+    // Update CSS variables, challenge 3
+    if (window.location.pathname == '/js3.html') {
     const blur = document.getElementById("blur");
     const spacing = document.getElementById("spacing");
     const backgroundColor = document.getElementById("backgroundColor");
     const img = document.getElementById("challenge3Img");
     function changeProperty() {
-        img.style = "border:" + spacing.value + "px solid " + backgroundColor.value + ";filter: blur(" + (blur.value)/10 + "px);";
+    img.style = "border:" + spacing.value + "px solid " + backgroundColor.value + ";filter: blur(" + (blur.value) / 10 + "px);";
     };
     changeProperty();
-};
-//End of function, challenge 3
+    };
+    //End of function, challenge 3
