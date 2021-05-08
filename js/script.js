@@ -203,7 +203,7 @@
 
 // Workin with arrays, challenge 4
 if (window.location.pathname == '/js4.html') {
-    highlight("challengeCode2")
+   // highlight("challengeCode2")
     const inventors = [
         { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
         { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
@@ -227,6 +227,17 @@ if (window.location.pathname == '/js4.html') {
         'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
 
- 
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+
+    // 1. Filter the list of inventors for those who where born in the 1500's
+    function checkYear(obj,number_1,number_2) {
+        const filtered_obj = obj.filter((item) => {
+            if (item.year >= number_1 && item.year < number_2) {
+                return true;
+            }
+        });
+        return filtered_obj;
+    }
+    
+    
 }
