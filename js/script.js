@@ -238,6 +238,11 @@ if (window.location.pathname == '/js4.html') {
         });
         return filtered_obj;
     }
-    
-    
+
+    // 2. Give us an array of the inventor first and last names
+    const full_name = [];
+    inventors.forEach((item) => {
+        full_name.push(item.first + ' ' + item.last);  
+    })
+    console.log(full_name);
 }
