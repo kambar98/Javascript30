@@ -245,4 +245,11 @@ if (window.location.pathname == '/js4.html') {
         full_name.push(item.first + ' ' + item.last);  
     })
     console.log(full_name);
+
+    // 3. Sort the inventors by birthdate, oldest to youngest
+    const ods = inventors.sort((first_item, second_item) =>
+        first_item.year > second_item.year ? 1 : -1
+    );
+
+    console.log(ods);
 }
