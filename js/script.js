@@ -216,7 +216,7 @@ if (window.location.pathname == '/js4.html') {
         { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
         { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
         { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
-        { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+        { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1999 }
     ];
 
     const people = [
@@ -230,6 +230,7 @@ if (window.location.pathname == '/js4.html') {
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 
     // 1. Filter the list of inventors for those who where born in the 1500's
+
     function checkYear(obj,number_1,number_2) {
         const filtered_obj = obj.filter((item) => {
             if (item.year >= number_1 && item.year < number_2) {
@@ -240,21 +241,31 @@ if (window.location.pathname == '/js4.html') {
     }
 
     // 2. Give us an array of the inventor first and last names
+
     const full_name = [];
     inventors.forEach((item) => {
         full_name.push(item.first + ' ' + item.last);  
     })
 
     // 3. Sort the inventors by birthdate, oldest to youngest
+
     const sorted = inventors.sort((first_item, second_item) =>
         first_item.year > second_item.year ? 1 : -1
     );
 
     // 4. How many years did all inventors live?
+
     var all_years = 0;
     inventors.forEach((item) => {
         all_years = all_years + (item.passed - item.year);
     })
 
-    console.log(all_years);
+    // 5. Sort the inventors by years lived
+
+    const oldest_inventor = inventors.sort((first_item, second_item) => {
+        return (first_item.passed - first_item.year) > (second_item.passed - second_item.year) ? -1 : 1;
+
+    })
+
+    // Create a list of Boulevards in Paris that contain 'de' anywhere in the name
 }
