@@ -267,5 +267,15 @@ if (window.location.pathname == '/js4.html') {
 
     })
 
-    // Create a list of Boulevards in Paris that contain 'de' anywhere in the name
+    // 6. Create a list of Boulevards in Paris that contain 'de' anywhere in the name
+    //const category = document.querySelector('.mw-category');
+  //  const items = Array.from(category.querySelectorAll('a'));
+  //  items.map(link => items.textContent).filter(street => street.includes('de'));
+
+    // 7. Sort the people alphabetically by last name
+   const sorted_last_name = people.sort((first_item, second_item) => {
+        return first_item.split(', ')[1] > second_item.split(', ')[1] ? 1 : -1;
+   });
+    
+
 }
