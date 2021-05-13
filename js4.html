@@ -84,7 +84,65 @@
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
         <div class="container my-3 p-2" id="challengeCode2">
+            if (window.location.pathname == '/js4.html') {
            
+            // 1. Filter the list of inventors for those who where born in the 1500's;
+
+            function checkYear(obj, number_1, number_2) {
+            const filtered_obj = obj.filter((item) => {
+            if (item.year >= number_1 && item.year < number_2) {
+            return true;
+            }
+            });
+            return filtered_obj;
+            };
+
+            // 2. Give us an array of the inventor first and last names;
+
+            const full_name = [];
+            inventors.forEach((item) => {
+            full_name.push(item.first + ' ' + item.last);
+            });
+
+            // 3. Sort the inventors by birthdate, oldest to youngest;
+
+            const sorted = inventors.sort((first_item, second_item) =>
+            first_item.year > second_item.year ? 1 : -1
+            );
+
+            // 4. How many years did all inventors live?;
+
+            var all_years = 0;
+            inventors.forEach((item) => {
+            all_years = all_years + (item.passed - item.year);
+            });
+            
+            // 5. Sort the inventors by years lived;
+
+            const oldest_inventor = inventors.sort((first_item, second_item) => {
+            return (first_item.passed - first_item.year) > (second_item.passed - second_item.year) ? -1 : 1;
+
+            })
+
+            // 6. Create a list of Boulevards in Paris that contain 'de' anywhere in the name;
+            //const category = document.querySelector('.mw-category');
+            //  const items = Array.from(category.querySelectorAll('a'));
+            //  items.map(link => items.textContent).filter(street => street.includes('de'));
+
+            // 7. Sort the people alphabetically by last name;
+            const sorted_last_name = people.sort((first_item, second_item) => {
+            return first_item.split(', ')[1] > second_item.split(', ')[1] ? 1 : -1;
+            });
+
+            // 8. Reduce Exercise;
+            const reduced = data.reduce((object, item) => {
+            if (!object[item]) {
+            object[item] = 0;
+            }
+            object[item]++;
+            return object;
+            }, {});
+            }
         </div>
     </div>
 
