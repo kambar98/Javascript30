@@ -203,7 +203,7 @@
 
 // Workin with arrays, challenge 4
 if (window.location.pathname == '/js4.html') {
-   // highlight("challengeCode2")
+    highlight("challengeCode2")
     const inventors = [
         { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
         { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
@@ -231,7 +231,7 @@ if (window.location.pathname == '/js4.html') {
 
     // 1. Filter the list of inventors for those who where born in the 1500's
 
-    function checkYear(obj,number_1,number_2) {
+    function checkYear(obj, number_1, number_2) {
         const filtered_obj = obj.filter((item) => {
             if (item.year >= number_1 && item.year < number_2) {
                 return true;
@@ -244,7 +244,7 @@ if (window.location.pathname == '/js4.html') {
 
     const full_name = [];
     inventors.forEach((item) => {
-        full_name.push(item.first + ' ' + item.last);  
+        full_name.push(item.first + ' ' + item.last);
     })
 
     // 3. Sort the inventors by birthdate, oldest to youngest
@@ -269,13 +269,20 @@ if (window.location.pathname == '/js4.html') {
 
     // 6. Create a list of Boulevards in Paris that contain 'de' anywhere in the name
     //const category = document.querySelector('.mw-category');
-  //  const items = Array.from(category.querySelectorAll('a'));
-  //  items.map(link => items.textContent).filter(street => street.includes('de'));
+    //  const items = Array.from(category.querySelectorAll('a'));
+    //  items.map(link => items.textContent).filter(street => street.includes('de'));
 
     // 7. Sort the people alphabetically by last name
-   const sorted_last_name = people.sort((first_item, second_item) => {
+    const sorted_last_name = people.sort((first_item, second_item) => {
         return first_item.split(', ')[1] > second_item.split(', ')[1] ? 1 : -1;
-   });
-    
+    });
 
+    // 8. Reduce Exercise
+    const reduced = data.reduce((object, item) => {
+        if (!object[item]) {
+            object[item] = 0;
+        }
+        object[item]++;
+        return object;
+    }, {});
 }
