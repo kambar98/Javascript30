@@ -286,3 +286,9 @@ if (window.location.pathname == '/js4.html') {
         return object;
     }, {});
 }
+
+//Flex Panels Image Gallery
+if (window.location.pathname == '/js5.html') {
+
+
+}
