@@ -289,6 +289,16 @@ if (window.location.pathname == '/js4.html') {
 
 //Flex Panels Image Gallery
 if (window.location.pathname == '/js5.html') {
-
+    const img_array = document.getElementsByClassName("img_challenge5")
+    function clicked_img() {
+        event.target.style.minWidth = "60%";
+        event.target.style.maxWidth = null;
+        for (const property in img_array) {
+           if (event.target.className != img_array[property].className) {
+               img_array[property].style.maxWidth = "10%";
+               img_array[property].style.minWidth = null;
+            }
+        }
+    }
 
 }

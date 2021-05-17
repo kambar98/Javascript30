@@ -37,13 +37,33 @@
             Wyzwanie polega na utworzeniu panelowej galerii, po naciśnieciu na dany panelik następuje jego rozszerzenie.
         </p>
         <div class="container my-3" id="challengeContainer">
+            <div class="challenge_5">
+                <img src="img/challenge5_1.jpg" class="img_challenge5 img1" onclick="clicked_img()">
+                <img src="img/challenge5_2.jpg" class="img_challenge5 img2" onclick="clicked_img()">
+                <img src="img/challenge5_3.jpg" class="img_challenge5 img3" onclick="clicked_img()">
+                <img src="img/challenge5_4.jpg" class="img_challenge5 img4" onclick="clicked_img()">
+                <img src="img/challenge5_5.jpg" class="img_challenge5 img5" onclick="clicked_img()">
+            </div>
         </div>
 
         <p style="text-indent:1rem;margin-bottom:0;">
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
         <div class="container my-3 p-2" id="challengeCode">
+            if (window.location.pathname == '/js5.html') {
+            const img_array = document.getElementsByClassName("img_challenge5")
+            function clicked_img() {
+            event.target.style.minWidth = "60%";
+            event.target.style.maxWidth = null;
+            for (const property in img_array) {
+            if (event.target.className != img_array[property].className) {
+            img_array[property].style.maxWidth = "10%";
+            img_array[property].style.minWidth = null;
+            }
+            }
+            }
 
+            }
         </div>
     </div>
 
