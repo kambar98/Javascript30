@@ -33,7 +33,7 @@
 
     for (var i = 0; i < words.length; i++)
     {
-    if (words[i] === "function" || words[i] === "if" || words[i] === "for" || words[i] === "var" || words[i] === "else" || words[i] === "return" || words[i] === "const") {
+        if (words[i] === "function" || words[i] === "if" || words[i] === "for" || words[i] === "var" || words[i] === "else" || words[i] === "return" || words[i] === "const" || words[i] === "new") {
     words.splice(i, 0, "<span class='jsWord'>");
     words.splice(i + 2, 0, '</span>');
     if (words[i] === "<span class='jsWord'>" || words[i] === "</span") {
@@ -300,5 +300,51 @@ if (window.location.pathname == '/js5.html') {
             }
         }
     }
+
+}
+
+//City population
+if (window.location.pathname == '/js6.html') {
+    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+    const cities = [];
+    var req = new XMLHttpRequest();
+    req.open('GET', endpoint, true);
+    req.send();
+    req.onload = function () {
+        if (this.status == 200) {
+            JSON.parse(this.responseText).forEach(city =>cities.push(city));
+            console.log(cities);
+            
+
+        } else {
+            console.log(this.status);
+        }
+    }
+    const challenge_6_search = document.getElementById("challenge_6_input");
+    const show_more_button = document.getElementById("show_more");
+    challenge_6_search.addEventListener('keyup', search);
+    
+    function search() {
+        document.getElementById("City_research").innerHTML = '';
+        show_more_button.style.display = 'none';
+        cities.forEach(element => {
+            if (element.city.includes(challenge_6_search.value)) {
+                if (document.getElementById("City_research").childElementCount < 10) {
+                    document.getElementById("City_research").innerHTML += '<li><a href="#">City: ' + element.city + '</br>Population: ' + element.population + '</a></li>';
+                }
+                 else {
+                    document.getElementById("City_research").innerHTML += '<li style="display:none" class="hidden_cities"><a href="#">City: ' + element.city + '</br>Population: ' + element.population + '</a></li>';
+                    show_more_button.style.display = 'block';
+                    show_more_button.addEventListener('click', displayAllCities);
+                }
+                
+            }
+        })
+    };
+
+    function displayAllCities() {
+        document.querySelectorAll('.hidden_cities').forEach(el => el.style.display = 'block');
+        show_more_button.style.display = 'none';
+    };
 
 }
