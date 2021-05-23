@@ -33,7 +33,7 @@
 
     for (var i = 0; i < words.length; i++)
     {
-        if (words[i] === "function" || words[i] === "if" || words[i] === "for" || words[i] === "var" || words[i] === "else" || words[i] === "return" || words[i] === "const" || words[i] === "new") {
+        if (words[i] === "function" || words[i] === "if" || words[i] === "for" || words[i] === "var" || words[i] === "else" || words[i] === "return" || words[i] === "const" || words[i] === "new" || words[i] === "let") {
     words.splice(i, 0, "<span class='jsWord'>");
     words.splice(i + 2, 0, '</span>');
     if (words[i] === "<span class='jsWord'>" || words[i] === "</span") {
@@ -387,5 +387,53 @@ if (window.location.pathname == '/js7.html') {
 
 // Fun with  HTML Canvas
 if (window.location.pathname == '/js8.html') {
+    const canvas = document.getElementById("canvas_draw");
+    const cvs = canvas.getContext("2d");
+    canvas.width = document.getElementById("challengeContainer").offsetWidth - 20;
+    window.addEventListener('resize', () => {
+        canvas.width = document.getElementById("challengeContainer").offsetWidth - 20;
+    });
+    let starting_x = 0;
+    let starting_y = 0;
+    let mouse_pressed = false;
+    let color = "#FF0000";
+    let line_width = 10;
+    cvs.lineCap = "round";
+    cvs.lineJoin = "round";
+    cvs.lineWidth = line_width;
+    cvs.strokeStyle = color ;
+
+    canvas.addEventListener("mousedown", (e) => {
+        mouse_pressed = true;
+        starting_x = e.offsetX;
+        starting_y = e.offsetY;
+    });
+    canvas.addEventListener("mousemove", drawing);
+    canvas.addEventListener("mouseup", () => { mouse_pressed = false; });
+    canvas.addEventListener("mouseout", () => { mouse_pressed = false; });
+    canvas.addEventListener("wheel", (e) => {
+        if (e.deltaY > 0) {
+            line_width--;
+        } else {
+            line_width++;
+        }
+    });
+
+    function drawing(event) {
+        if (mouse_pressed) {
+            color = Math.floor(360 * Math.random());
+            cvs.beginPath();
+            cvs.strokeStyle = `hsl(${color}, 100%, 50%)`;
+            cvs.lineWidth = line_width;
+            cvs.moveTo(starting_x, starting_y);
+            cvs.lineTo(event.offsetX, event.offsetY);
+            cvs.stroke();
+            starting_x = event.offsetX;
+            starting_y = event.offsetY;
+
+        } else
+            return
+
+    };
 
 }
