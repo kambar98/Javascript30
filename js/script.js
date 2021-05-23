@@ -384,3 +384,8 @@ if (window.location.pathname == '/js7.html') {
 
     highlight("challengeCode2");
 }
+
+// Fun with  HTML Canvas
+if (window.location.pathname == '/js8.html') {
+
+}
