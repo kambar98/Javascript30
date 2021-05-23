@@ -258,3 +258,13 @@ flex-direction:row;
 #show_more {
 display:none;
 }
+/*End of challenge 6*/
+
+/*Challenge 8*/
+#canvas_draw {
+    height: 500px;
+    /*width: 500px;*/
+    margin-top: 5px;
+    border: 1px solid cornflowerblue;
+    border-radius: 10px;
+}

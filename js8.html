@@ -32,18 +32,65 @@
     </div>
 
     <div class="container p-3 bg-dark " style=" border-radius: 2rem; color:#e6e6e6 ">
-        <h1 style="text-align:center"> Challenge  : </h1>
+        <h1 style="text-align:center"> Challenge 8 : Canvas </h1>
         <p style="text-indent:1rem;margin-bottom:0;">
+            Wyzwanie polega na stworzeniu za pomocą canvas obszaru do rysowania myszką. Grubość linii jest regulowana przez kółko w myszy.
         </p>
         <div class="container my-3" id="challengeContainer">
-            <canvas id="canvas_draw"></canvas>
+            <canvas id="canvas_draw" height="500" width="500"></canvas>
         </div>
 
         <p style="text-indent:1rem;margin-bottom:0;">
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
         <div class="container my-3 p-2" id="challengeCode">
+            const canvas = document.getElementById("canvas_draw");
+            const cvs = canvas.getContext("2d");
+            canvas.width = document.getElementById("challengeContainer").offsetWidth - 20;
+            window.addEventListener('resize', () => {
+            canvas.width = document.getElementById("challengeContainer").offsetWidth - 20;
+            });
+            let starting_x = 0;
+            let starting_y = 0;
+            let mouse_pressed = false;
+            let color = "#FF0000";
+            let line_width = 10;
+            cvs.lineCap = "round";
+            cvs.lineJoin = "round";
+            cvs.lineWidth = line_width;
+            cvs.strokeStyle = color ;
 
+            canvas.addEventListener("mousedown", (e) => {
+            mouse_pressed = true;
+            starting_x = e.offsetX;
+            starting_y = e.offsetY;
+            });
+            canvas.addEventListener("mousemove", drawing);
+            canvas.addEventListener("mouseup", () => { mouse_pressed = false; });
+            canvas.addEventListener("mouseout", () => { mouse_pressed = false; });
+            canvas.addEventListener("wheel", (e) => {
+            if (e.deltaY > 0) {
+            line_width--;
+            } else {
+            line_width++;
+            }
+            });
+
+            function drawing(event) {
+            if (mouse_pressed) {
+            color = Math.floor(360 * Math.random());
+            cvs.beginPath();
+            cvs.strokeStyle = `hsl(${color}, 100%, 50%)`;
+            cvs.lineWidth = line_width;
+            cvs.moveTo(starting_x, starting_y);
+            cvs.lineTo(event.offsetX, event.offsetY);
+            cvs.stroke();
+            starting_x = event.offsetX;
+            starting_y = event.offsetY;
+
+            } else return
+
+            };
         </div>
     </div>
 
