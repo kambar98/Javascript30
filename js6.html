@@ -50,47 +50,53 @@
         Kod w javaScript który posłużył do zrobienia zadania:
     </p>
     <div class="container my-3 p-2" id="challengeCode">
-        const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
-        const cities = [];
-        var req = new XMLHttpRequest();
-        req.open('GET', endpoint, true);
-        req.send();
-        req.onload = function () {
+         const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+    const cities = [];
+    var req = new XMLHttpRequest();
+    req.open('GET', endpoint, true);
+    req.send();
+    req.onload = function () {
         if (this.status == 200) {
-        JSON.parse(this.responseText).forEach(city =>cities.push(city));
-        console.log(cities);
-
-
+            JSON.parse(this.responseText).forEach(city =>cities.push(city));
         } else {
-        console.log(this.status);
+            console.log(this.status);
         }
-        }
-        const challenge_6_search = document.getElementById("challenge_6_input");
-        const show_more_button = document.getElementById("show_more");
-        challenge_6_search.addEventListener('keyup', search);
-
-        function search() {
+    }
+    const challenge_6_search = document.getElementById("challenge_6_input");
+    const show_more_button = document.getElementById("show_more");
+    challenge_6_search.addEventListener('keyup', search);
+    
+    function search() {
         document.getElementById("City_research").innerHTML = '';
         show_more_button.style.display = 'none';
         cities.forEach(element => {
-        if (element.city.includes(challenge_6_search.value)) {
-        if (document.getElementById("City_research").childElementCount < 10) {
-        document.getElementById("City_research").innerHTML += '<li><a href="#">City: ' + element.city + '</br>Population: ' + element.population + '</a></li>';
-        }
-        else {
-        document.getElementById("City_research").innerHTML += '<li style="display:none" class="hidden_cities"><a href="#">City: ' + element.city + '</br>Population: ' + element.population + '</a></li>';
-        show_more_button.style.display = 'block';
-        show_more_button.addEventListener('click', displayAllCities);
-        }
-
-        }
+            if (element.city.includes(challenge_6_search.value)) {
+                if (document.getElementById("City_research").childElementCount < 10) {
+                    document.getElementById("City_research").innerHTML += `<li> <a href="#">
+                                                                            City: ${element.city}
+                                                                            </br>
+                                                                            Population: ${element.population}
+                                                                            </a ></li > `;
+                }
+                 else {
+                    document.getElementById("City_research").innerHTML += `<li style="display:none" class="hidden_cities"><a href="#">
+                                                                            City: ${element.city}
+                                                                            </br>
+                                                                            Population: ${element.population}
+                                                                            </a></li>`;
+                    show_more_button.style.display = 'block';
+                    show_more_button.addEventListener('click', displayAllCities);
+                }
+                
+            }
         })
-        };
+    };
 
-        function displayAllCities() {
+    function displayAllCities() {
         document.querySelectorAll('.hidden_cities').forEach(el => el.style.display = 'block');
         show_more_button.style.display = 'none';
-        };
+    };
+
 
     </div>
 </div>

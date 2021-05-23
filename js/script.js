@@ -313,9 +313,6 @@ if (window.location.pathname == '/js6.html') {
     req.onload = function () {
         if (this.status == 200) {
             JSON.parse(this.responseText).forEach(city =>cities.push(city));
-            console.log(cities);
-            
-
         } else {
             console.log(this.status);
         }
@@ -330,10 +327,18 @@ if (window.location.pathname == '/js6.html') {
         cities.forEach(element => {
             if (element.city.includes(challenge_6_search.value)) {
                 if (document.getElementById("City_research").childElementCount < 10) {
-                    document.getElementById("City_research").innerHTML += '<li><a href="#">City: ' + element.city + '</br>Population: ' + element.population + '</a></li>';
+                    document.getElementById("City_research").innerHTML += `<li> <a href="#">
+                                                                            City: ${element.city}
+                                                                            </br>
+                                                                            Population: ${element.population}
+                                                                            </a ></li > `;
                 }
                  else {
-                    document.getElementById("City_research").innerHTML += '<li style="display:none" class="hidden_cities"><a href="#">City: ' + element.city + '</br>Population: ' + element.population + '</a></li>';
+                    document.getElementById("City_research").innerHTML += `<li style="display:none" class="hidden_cities"><a href="#">
+                                                                            City: ${element.city}
+                                                                            </br>
+                                                                            Population: ${element.population}
+                                                                            </a></li>`;
                     show_more_button.style.display = 'block';
                     show_more_button.addEventListener('click', displayAllCities);
                 }
@@ -347,4 +352,35 @@ if (window.location.pathname == '/js6.html') {
         show_more_button.style.display = 'none';
     };
 
+}
+
+// Array cardio day 2
+if (window.location.pathname == '/js7.html') {
+    const current_year = new Date().getFullYear();
+    const people = [{ name: 'Wes', year: 1988 }, { name: 'Kait', year: 1986 }, { name: 'Irv', year: 1970 }, { name: 'Lux', year: 2015 }];
+    const comments = [{ text: 'Love this!', id: 523423 }, { text: 'Super good', id: 823423 }, { text: 'You are the best', id: 2039842 }, { text: 'Ramen is my fav food ever', id: 123523 }, { text: 'Nice Nice Nice!', id: 542328 }];
+
+    // is at least one person 19 or older?;
+    people.some((user_year) => {
+        if (19 <= (current_year - user_year.year))
+            return true
+        else
+            return false
+    });
+
+    // is everyone 19 or older ?;
+        people.every((user_year) => {
+            return (19 <= (current_year - user_year.year))
+        });
+
+    // find the comment with the ID of 823423;
+    comments.find(comment => comment.id == 823423);
+
+    // Find the comment with this ID;
+    const found_index = comments.findIndex(comment => comment.id == 823423);
+
+    // delete the comment with the ID of 823423
+    comments.splice(found_index, 1);
+
+    highlight("challengeCode2");
 }
