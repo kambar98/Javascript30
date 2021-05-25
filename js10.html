@@ -34,6 +34,8 @@
     <div class="container p-3 bg-dark " style=" border-radius: 2rem; color:#e6e6e6 ">
         <h1 style="text-align:center"> Challenge 10 : Hold Shift to Check Multiple Checkboxes </h1>
         <p style="text-indent:1rem;margin-bottom:0;">
+        Zadanie polegało na utworzeniu formularzu w którym przytrzymując shift mamy możlwiość zaznaczenia wiecej checkboxów.
+        
         </p>
         <div class="container my-3" id="challengeContainer">
             <div class="inbox">
@@ -76,7 +78,27 @@
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
         <div class="container my-3 p-2" id="challengeCode">
+            const elements = document.querySelectorAll('.inbox input');
+            let last_check;
+            let between = false;
+            elements.forEach(el => el.addEventListener('click', clickedCheckBox));
+            function clickedCheckBox() {
+            if (event.shiftKey && this.checked && last_check) {
+            elements.forEach(el => {
+            if (this === last_check) {
+            between = false;
+            }
+            if (el === this || el === last_check) {
+            between = !between;
+            }
+            if (between) {
+            el.checked = true;
+            }
 
+            })
+            }
+            last_check = this;
+            }
         </div>
     </div>
 
