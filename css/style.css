@@ -263,8 +263,31 @@ display:none;
 /*Challenge 8*/
 #canvas_draw {
     height: 500px;
-    /*width: 500px;*/
     margin-top: 5px;
     border: 1px solid cornflowerblue;
     border-radius: 10px;
 }
+/*End of challenge 8*/
+
+/*Challenge 10*/
+.inbox {
+    max-width: 400px;
+    background: white;
+    border-radius: 5px;
+    color: black;
+    margin: auto;
+    padding: 20px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #F1F1F1;
+}
+
+    .item p {
+    margin:0;
+    padding-left:10px;
+    
+    }
+/*End of challenge 10*/
