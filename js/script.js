@@ -437,3 +437,9 @@ if (window.location.pathname == '/js8.html') {
     };
 
 }
+
+// Hold Shift to Check Multiple Checkboxes
+if (window.location.pathname == '/js10.html') {
+   
+
+}
