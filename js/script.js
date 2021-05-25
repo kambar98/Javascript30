@@ -440,6 +440,25 @@ if (window.location.pathname == '/js8.html') {
 
 // Hold Shift to Check Multiple Checkboxes
 if (window.location.pathname == '/js10.html') {
-   
+    const elements = document.querySelectorAll('.inbox input');
+    let last_check;
+    let between = false;
+    elements.forEach(el => el.addEventListener('click', clickedCheckBox));
+    function clickedCheckBox() {
+        if (event.shiftKey && this.checked && last_check) {
+            elements.forEach(el => {
+                if (this === last_check) {
+                    between = false;
+                }
+                if (el === this || el === last_check) {
+                    between = !between;
+                } 
+                if (between) {   
+                    el.checked = true;
+                }
 
+            })
+        }
+        last_check = this;
+    }    
 }
