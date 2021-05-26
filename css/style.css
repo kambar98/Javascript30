@@ -291,3 +291,11 @@ display:none;
     
     }
 /*End of challenge 10*/
+
+/*Challenge 11*/
+.player {
+display:flex;
+}
+.player_video {
+margin:auto;
+}
