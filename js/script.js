@@ -462,3 +462,9 @@ if (window.location.pathname == '/js10.html') {
         last_check = this;
     }    
 }
+
+// Custom HTML5 Video Player
+
+if (window.location.pathname == '/js10.html') {
+
+}
