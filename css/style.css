@@ -1,4 +1,5 @@
 /* Index.html */
+
 .jsWord{
     color:blue;
 }
@@ -295,7 +296,68 @@ display:none;
 /*Challenge 11*/
 .player {
 display:flex;
+padding:20px;
+flex-direction:column;
 }
-.player_video {
-margin:auto;
+#player_video {
+    margin: auto;
+    width: -webkit-fill-available;
 }
+#video_controls {
+    background: #1a1a1a;
+    padding: 10px;
+    opacity: 0;
+    position: absolute;
+    display: flex;
+}
+.mouseOn {
+    visibility: visible !important;
+    animation-name: fade-in;
+    animation-duration: 1s;
+}
+.mouseOut {
+    animation-name: fade-out;
+    animation-duration: 1s;
+    opacity: 0;
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.5;
+    }
+}
+@keyframes fade-out {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+#playPausebtn,#slider,#videoTime,#mute,#volume_slider,#fullscreen_btn {
+    margin-right: 20px;
+    cursor:pointer;
+}
+#playPausebtn, #mute, #fullscreen_btn {
+    background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+    background-color: #7892c2;
+    border-radius: 10px;
+    border: 1px solid #4e6096;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 19px;
+    padding: 0px 11px;
+    text-decoration: none;
+}
+
+ #playPausebtn:hover, #mute:hover, #fullscreen_btn:hover {
+        background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+        background-color: #476e9e;
+  }

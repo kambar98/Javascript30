@@ -465,6 +465,119 @@ if (window.location.pathname == '/js10.html') {
 
 // Custom HTML5 Video Player
 
-if (window.location.pathname == '/js10.html') {
+if (window.location.pathname == '/js11.html') {
+    var bar = document.getElementById("video_controls");
+    var video_player = document.getElementById("player_video");
+    var player = document.getElementById("player_box");
+    var slider = document.getElementById("slider");
+    var current_time = document.getElementById("currentTimeText");
+    var duration_time = document.getElementById("durationTimeText");
+    var mutebtn = document.getElementById("mute");
+    var mouse_pressed = false;
+    var volume_slider = document.getElementById("volume_slider");
+    var fullscreen = document.getElementById("fullscreen_btn");
 
+    window.addEventListener("resize", windowResize);
+    player.addEventListener("mouseenter", MouseOnPlayer);
+    player.addEventListener("mouseleave", MouseOutPlayer);
+    slider.addEventListener("change", videoTime);
+    video_player.addEventListener("timeupdate", slideTimeUpdate);
+    mutebtn.addEventListener("click", muteVideo);
+    volume_slider.addEventListener("change", changeVolume);
+    fullscreen.addEventListener("click", toggleFullScreen);
+
+    window.onload = function () {
+        bar.style.width = video_player.offsetWidth + "px";
+        slideTimeUpdate();
+    }
+
+    slider.onmousedown = function() {
+        mouse_pressed = true;
+    }
+    slider.onmouseup = function () {
+        mouse_pressed = false;
+    }
+
+    function toggleFullScreen() {
+
+            video_player.requestFullscreen();
+    }
+
+    function changeVolume() {
+        video_player.volume = volume_slider.value / 100;
+    }
+
+    function muteVideo() {
+        if (video_player.muted) {
+            video_player.muted = false;
+            mutebtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            volume_slider.value = 100;
+            video_player.volume = volume_slider.value/100;
+        } else {
+            video_player.muted = true;
+            mutebtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            volume_slider.value = 0;
+            video_player.volume = volume_slider.value;
+        }
+
+    }
+
+    function slideTimeUpdate() {
+        var current_min = Math.floor(video_player.currentTime / 60);
+        var current_sec = Math.floor(video_player.currentTime - current_min * 60);
+        var duration_min = Math.floor(video_player.duration / 60);
+        var duration_sec = Math.floor(video_player.duration - duration_min * 60);
+
+        if (current_sec < 10) {
+            current_sec = "0" + current_sec;
+        }
+        if (duration_sec < 10) {
+            duration_sec = "0" + duration_sec;
+        }
+        if (current_min < 10) {
+            current_min = "0" + current_min;
+        }
+        if (duration_min < 10) {
+            duration_min = "0" + duration_min;
+        }
+        current_time.innerHTML = current_min + ":" + current_sec + " / ";
+        duration_time.innerHTML = duration_min + ":" + duration_sec;
+        if (mouse_pressed) {
+            return;
+        }
+        else {
+            slider.value = video_player.currentTime * (100 / video_player.duration);
+        }
+
+    }
+
+    function videoTime() {
+            video_player.currentTime = video_player.duration * (slider.value / 100);
+    }
+
+    function windowResize() {
+        bar.style.width = video_player.offsetWidth + "px";
+    }
+    function MouseOnPlayer() {
+        bar.classList.add("mouseOn");
+        bar.classList.remove("mouseOut");
+        bar.style.opacity = "0.5";
+    }
+    function MouseOutPlayer() {
+        bar.classList.add("mouseOut");
+        bar.classList.remove("mouseOn");
+        bar.style.opacity = "0";
+      
+    }
+    function playPause(btn, video) {
+        if (video_player.paused) {
+            btn.innerHTML = "<i class='fas fa-play'></i>";
+            video_player.play();
+            
+        } else {
+            btn.innerHTML = '<i class="fas fa-stop"></i>';
+            video_player.pause();
+        }
+
+    }
 }
