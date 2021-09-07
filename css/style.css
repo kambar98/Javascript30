@@ -361,3 +361,44 @@ flex-direction:column;
         background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
         background-color: #476e9e;
   }
+
+
+
+
+
+#body-js13  .site-wrap {
+    color:black;
+    max-width: 700px;
+    margin: 100px auto;
+    background: white;
+    padding: 40px;
+    text-align: justify;
+}
+
+#body-js13  .align-left {
+    float: left;
+    margin-right: 20px;
+}
+
+#body-js13  .align-right {
+    float: right;
+    margin-left: 20px;
+}
+
+#body-js13  .slide-in {
+    opacity: 0;
+    transition: all .5s;
+}
+
+#body-js13  .align-left.slide-in {
+    transform: translateX(-30%) scale(0.95);
+}
+
+#body-js13  .align-right.slide-in {
+    transform: translateX(30%) scale(0.95);
+}
+
+#body-js13  .slide-in.active {
+    opacity: 1;
+    transform: translateX(0%) scale(1);
+}
