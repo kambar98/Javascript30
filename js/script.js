@@ -581,3 +581,9 @@ if (window.location.pathname == '/js11.html') {
 
     }
 }
+
+//Key sequence detection (KONAMI CODE)
+
+if (window.location.pathname == '/js12.html') {
+
+}
