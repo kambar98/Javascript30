@@ -44,7 +44,19 @@
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
         <div class="container my-3 p-2" id="challengeCode">
-
+            let pattern = ['s', 'd', 'f', 'g', 'z', 'x', 'c', 'v'];
+            let count = 0;
+            let pattern_length = pattern.length;
+            window.addEventListener('keydown', (e) => {
+            if (pattern[count] === e.key) {
+            count++;
+            if (pattern_length === count) {
+            alert('KONAMI CODE');
+            }
+            } else {
+            count = 0;
+            }
+            })
         </div>
     </div>
 
