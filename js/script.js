@@ -586,4 +586,18 @@ if (window.location.pathname == '/js11.html') {
 
 if (window.location.pathname == '/js12.html') {
 
+    let pattern = ['s', 'd', 'f', 'g', 'z', 'x', 'c', 'v'];
+    let count = 0;
+    let pattern_length = pattern.length;
+    window.addEventListener('keydown', (e) => {
+        if (pattern[count] === e.key) {
+            count++;
+            if (pattern_length === count) {
+                alert('KONAMI CODE');
+            }
+        } else {
+            count = 0;
+        }
+    })
+
 }
