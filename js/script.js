@@ -601,3 +601,23 @@ if (window.location.pathname == '/js12.html') {
     })
 
 }
+
+// Slide In on Scroll
+
+if (window.location.pathname == '/js13.html') {
+
+    const images = document.querySelectorAll('.slide-in');
+    function showImages(e) {
+        images.forEach((item) => {
+            const height_to_images = (window.scrollY + window.innerHeight) - item.height / 2;
+            if (item.offsetTop < height_to_images) {
+                item.classList.add("active");
+            } else  {
+               item.classList.remove("active");
+            }
+        });
+    }
+    window.addEventListener('scroll', showImages);
+
+
+}
