@@ -361,10 +361,10 @@ flex-direction:column;
         background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
         background-color: #476e9e;
   }
+/*End of challenge 11*/
 
 
-
-
+ /*Challenge 13*/
 
 #body-js13  .site-wrap {
     color:black;
@@ -402,3 +402,4 @@ flex-direction:column;
     opacity: 1;
     transform: translateX(0%) scale(1);
 }
+/*End of challenge 13*/
