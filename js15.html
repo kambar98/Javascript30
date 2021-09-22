@@ -34,16 +34,17 @@
     <div class="container p-3 bg-dark " style=" border-radius: 2rem; color:#e6e6e6 ">
         <h1 style="text-align:center"> Challenge 15 : LocalStorage and Event Delegation</h1>
         <p style="text-indent:1rem;margin-bottom:0;">
+            Wyzwanie polegało na stworzeniu listy która przechowywana jest w localStorage.
         </p>
         <div class="container my-3" id="challengeContainer">
             <div class="wrapper">
                 <h2>LOCAL TAPAS</h2>
                 <p></p>
                 <ul class="plates">
-                    <li>Loading Tapas...</li>
+                    <li id="loadingItem">Loading Tapas...</li>
                 </ul>
                 <form class="add-items">
-                    <input type="text" name="item" placeholder="Item Name" required>
+                    <input type="text" name="item" placeholder="Item Name" id="addedItem" required>
                     <input type="submit" value="+ Add Item">
                 </form>
             </div>
@@ -53,7 +54,57 @@
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
         <div class="container my-3 p-2" id="challengeCode">
+            const addItems = document.querySelector('.add-items');
+            const itemsList = document.querySelector('.plates');
+            const loading = document.getElementById('loadingItem');
+            let items = [];
+            let storage_items = localStorage.getItem('itemName');
+            let new_li = document.createElement('li');
 
+            function refreshItemList(AddingNewItem, item_value) {
+
+            if (storage_items && !AddingNewItem) {
+            items = JSON.parse(storage_items);
+            items.forEach((element) => {
+            new_li.innerHTML = '<input type="checkbox" />' +'<label>' +element+'</label>';
+            itemsList.appendChild(new_li.cloneNode(true));
+            })
+            loading.remove();
+
+            } else if (AddingNewItem) {
+            new_li.innerHTML = item_value;
+            itemsList.appendChild(new_li.cloneNode(true));
+            loading.remove();
+            }
+            else {
+            return;
+            }
+            }
+
+            function addItem(e) {
+            e.preventDefault();
+            let new_item = addItems.elements['addedItem'].value;
+            items.push(new_item)
+            localStorage.setItem('itemName', JSON.stringify(items));
+            this.reset();
+            refreshItemList(true, new_item)
+
+            }
+
+            function checkingItem(e) {
+            let clicked_element = e.target;
+            if (clicked_element.matches('label')) {
+            clicked_element.previousElementSibling.checked = !clicked_element.previousElementSibling.checked;
+            } else if (clicked_element.matches('li')) {
+            clicked_element.children[0].checked = !clicked_element.children[0].checked;
+            } else {
+            return;
+            }
+            }
+
+            itemsList.addEventListener('click',checkingItem)
+            addItems.addEventListener('submit', addItem);
+            refreshItemList(false);
         </div>
     </div>
 
