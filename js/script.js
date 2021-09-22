@@ -39,7 +39,7 @@
     if (words[i] === "<span class='jsWord'>" || words[i] === "</span") {
         i++;
     };
-    } else if (words[i].slice(0, 6) === "window" || words[i].slice(0, 8) === "document") {
+        } else if (words[i].slice(0, 6) === "window" || words[i].slice(0, 8) === "document" || words[i].slice(0, 4) === "JSON") {
         var obj = words[i].split(".");
 
         obj[0] = "<span class='jsWord'>" + obj[0] + '</span>';
@@ -683,5 +683,11 @@ if (window.location.pathname == '/js15.html') {
     itemsList.addEventListener('click',checkingItem)
     addItems.addEventListener('submit', addItem);
     refreshItemList(false);
+
+}
+
+//CSS Text Shadow Mouse Move effect
+
+if (window.location.pathname == '/js16.html') {
 
 }
