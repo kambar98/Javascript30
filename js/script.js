@@ -628,3 +628,60 @@ if (window.location.pathname == '/js14.html') {
 
 
 }
+
+//LocalStorage and Event Delegation
+if (window.location.pathname == '/js15.html') {
+
+    const addItems = document.querySelector('.add-items');
+    const itemsList = document.querySelector('.plates');
+    const loading = document.getElementById('loadingItem');
+    let items = [];
+    let storage_items = localStorage.getItem('itemName');
+    let new_li = document.createElement('li');
+ 
+    function refreshItemList(AddingNewItem, item_value) {
+
+        if (storage_items && !AddingNewItem) {
+            items = JSON.parse(storage_items);
+            items.forEach((element) => {
+                new_li.innerHTML = '<input type="checkbox"/>' +'<label>' +element+'</label>';
+                itemsList.appendChild(new_li.cloneNode(true));
+            })
+            loading.remove();
+
+        } else if (AddingNewItem) {
+            new_li.innerHTML = item_value;
+            itemsList.appendChild(new_li.cloneNode(true));
+            loading.remove();
+        }
+        else {
+            return;
+        }
+    }
+
+    function addItem(e) {
+        e.preventDefault();
+        let new_item = addItems.elements['addedItem'].value;
+        items.push(new_item)
+        localStorage.setItem('itemName', JSON.stringify(items));
+        this.reset();
+        refreshItemList(true, new_item)
+        
+    }
+
+    function checkingItem(e) {
+        let clicked_element = e.target;
+        if (clicked_element.matches('label')) {
+            clicked_element.previousElementSibling.checked = !clicked_element.previousElementSibling.checked;
+        } else if (clicked_element.matches('li')) {
+            clicked_element.children[0].checked = !clicked_element.children[0].checked;
+        } else {
+            return;
+        }
+    }
+
+    itemsList.addEventListener('click',checkingItem)
+    addItems.addEventListener('submit', addItem);
+    refreshItemList(false);
+
+}
