@@ -106,8 +106,9 @@
 .drumSound{
  color:orange;
 }
-#challengeContainer{
-    border-radius:0.5rem;
+#challengeContainer {
+    border-radius: 0.5rem;
+    padding: 20px;
 }
 @media screen and (max-width: 420px) {
     #drumCollection {
@@ -403,3 +404,58 @@ flex-direction:column;
     transform: translateX(0%) scale(1);
 }
 /*End of challenge 13*/
+
+/*Challenge 14*/
+.wrapper {
+    padding: 20px;
+    max-width: 350px;
+    background: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    margin: auto;
+    padding: 20px;
+    color: black;
+}
+
+
+.plates {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    list-style: none;
+}
+
+    .plates li {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 10px 0;
+        font-weight: 100;
+        display: flex;
+    }
+
+    .plates label {
+        flex: 1;
+        cursor: pointer;
+    }
+
+    .plates input {
+        display: none;
+    }
+
+        .plates input + label:before {
+            
+            margin-right: 10px;
+        }
+
+        .plates input:checked + label:before {
+            content: "X";
+        }
+
+.add-items {
+    margin-top: 20px;
+}
+
+    .add-items input {
+        padding: 10px;
+        outline: 0;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
