@@ -405,7 +405,7 @@ flex-direction:column;
 }
 /*End of challenge 13*/
 
-/*Challenge 14*/
+/*Challenge 15*/
 .wrapper {
     padding: 20px;
     max-width: 350px;
@@ -456,3 +456,18 @@ flex-direction:column;
         outline: 0;
         border: 1px solid rgba(0, 0, 0, 0.1);
     }
+/*End of challenge 15*/
+
+/*challenge 16*/
+.hero {
+    min-height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.hero h1 {
+    text-shadow: 10px 10px 0 rgba(0,0,0,1);
+    font-size: 100px;
+}
