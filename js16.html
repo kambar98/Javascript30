@@ -46,6 +46,28 @@
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
         <div class="container my-3 p-2" id="challengeCode">
+            const hero_div = document.querySelector('.hero');
+            const woah = hero_div.querySelector('h1');
+            let width = hero_div.offsetWidth;
+            let height = hero_div.offsetHeight;
+            const max_shadow = 500;
+            function MovingShadow(event) {
+
+            width = hero_div.offsetWidth;
+            height = hero_div.offsetHeight;
+            let x = event.clientX;
+            let y = event.clientY - woah.clientHeight / 2;
+            let shadowX = Math.round(((x / width) * max_shadow) - (max_shadow));
+            let shadowY = Math.round(((y / height) * max_shadow) - (max_shadow));
+            woah.style.textShadow = `
+            ${shadowX}px ${shadowY}px 0 rgba(255,0,255,0.5),
+            ${-shadowX}px ${shadowY}px 0 rgba(249, 0, 0,0.5),
+            ${shadowY}px ${-shadowX}px 0 rgba(0, 0, 249,0.5),
+            ${-shadowY}px ${shadowX}px 0 rgba(0, 249, 0,0.5)
+            `;
+            }
+
+            hero_div.addEventListener('mousemove', MovingShadow);
 
         </div>
     </div>
