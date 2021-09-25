@@ -714,3 +714,11 @@ if (window.location.pathname == '/js16.html') {
     hero_div.addEventListener('mousemove', MovingShadow);
 
 }
+
+//Sorting Band Names without articles
+if (window.location.pathname == '/js17.html') {
+
+    const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+
+ 
+}
