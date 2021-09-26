@@ -739,3 +739,10 @@ if (window.location.pathname == '/js17.html') {
 
  
 }
+
+//Tally String Times with Reduce
+
+if (window.location.pathname == '/js18.html') {
+
+
+}
