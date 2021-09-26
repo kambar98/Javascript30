@@ -719,6 +719,23 @@ if (window.location.pathname == '/js16.html') {
 if (window.location.pathname == '/js17.html') {
 
     const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+    function checkArticles(band_name) {
+        return band_name.replace(/the |an |a /gi, ' ').trim();
+    }
+
+    let sorted_bands = bands.sort((a, b) => {
+        if (checkArticles(a) > checkArticles(b)) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
+    let list = document.querySelector('#list');
+    let new_li = document.createElement('li');
+    sorted_bands.forEach((element) => {
+        new_li.innerHTML = element;
+        list.appendChild(new_li.cloneNode(true));
+    })
 
  
 }
