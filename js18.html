@@ -41,7 +41,7 @@
                 <li data-time="5:43">
                     Video 1
                 </li>
-                <li data-time="2:33">
+                <li data-time="2:35">
                     Video 2
                 </li>
                 <li data-time="3:45">
@@ -219,6 +219,23 @@
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
         <div class="container my-3 p-2" id="challengeCode">
+            const list = document.querySelectorAll('.videos li');
+            var seconds = 0;
+            var minutes = 0;
+            var hours = 0;
+            list.forEach((Element) => {
+            let attribute = Element.getAttribute('data-time');
+            let index = attribute.indexOf(':');
+            if (index === 2 || index === 1) {
+            minutes = minutes + parseInt(attribute.slice(0, index));
+            seconds = seconds + parseInt(attribute.slice(index+1, attribute.length));
+            }
+            })
+            seconds = seconds + minutes * 60;
+            hours = Math.floor(seconds / 3600);
+            minutes = Math.floor((seconds % 3600) / 60);
+            seconds = (seconds % 3600) % 60;
+            console.log(hours, minutes, seconds);
 
         </div>
     </div>
