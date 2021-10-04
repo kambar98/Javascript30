@@ -743,6 +743,22 @@ if (window.location.pathname == '/js17.html') {
 //Tally String Times with Reduce
 
 if (window.location.pathname == '/js18.html') {
-
-
+    const list = document.querySelectorAll('.videos li');
+    var seconds = 0;
+    var minutes = 0;
+    var hours = 0;
+    list.forEach((Element) => {
+        let attribute = Element.getAttribute('data-time');
+        let index = attribute.indexOf(':');
+        if (index === 2 || index === 1) {
+            minutes = minutes + parseInt(attribute.slice(0, index));
+            seconds = seconds + parseInt(attribute.slice(index+1, attribute.length));
+        }
+    })
+    seconds = seconds + minutes * 60;
+    hours = Math.floor(seconds / 3600);
+    minutes = Math.floor((seconds % 3600) / 60);
+    seconds = (seconds % 3600) % 60;
+    console.log(hours, minutes, seconds);
+    
 }
