@@ -851,3 +851,7 @@ if (window.location.pathname == '/js19.html') {
 
 }
 
+//Native Speech Recognition
+if (window.location.pathname == '/js20.html') {
+
+}
