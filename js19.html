@@ -32,11 +32,38 @@
     </div>
 
     <div class="container p-3 bg-dark " style=" border-radius: 2rem; color:#e6e6e6 ">
-        <h1 style="text-align:center"> Challenge  : </h1>
+        <h1 style="text-align:center"> Challenge 19 : Unreal Webcam Fun</h1>
         <p style="text-indent:1rem;margin-bottom:0;">
+            Wyzwanie polega na stworzenia programu obsługującego kamerke internetową.
         </p>
         <div class="container my-3" id="challengeContainer">
+            <div class="photobooth">
+                <div class="controls">
+                    <button onClick="takePhoto()">Take Photo</button>
+                    <div class="rgb">
+                    <label for="rmin">Red Min:</label>
+                    <input type="range" min=0 max=255 name="rmin">
+                    <label for="rmax">Red Max:</label>
+                    <input type="range" min=0 max=255 name="rmax">
+                    <br>
+                    <label for="gmin">Green Min:</label>
+                    <input type="range" min=0 max=255 name="gmin">
+                    <label for="gmax">Green Max:</label>
+                    <input type="range" min=0 max=255 name="gmax">
+                    <br>
+                    <label for="bmin">Blue Min:</label>
+                    <input type="range" min=0 max=255 name="bmin">
+                    <label for="bmax">Blue Max:</label>
+                    <input type="range" min=0 max=255 name="bmax">
+                  </div> 
+                </div>
 
+                <canvas class="photo"></canvas>
+                <video class="player"></video>
+                <div class="strip"></div>
+            </div>
+
+            <audio class="snap" src="../sound/snap.mp3" hidden></audio>
         </div>
 
         <p style="text-indent:1rem;margin-bottom:0;">
