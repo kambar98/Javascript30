@@ -880,3 +880,7 @@ if (window.location.pathname == '/js20.html') {
         alert("Speech Recognition Not Available")
     }
 }
+//Geolocation based Speedometer and Compass
+if (window.location.pathname == '/js21.html') {
+
+}
