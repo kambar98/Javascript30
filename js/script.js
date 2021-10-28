@@ -853,5 +853,30 @@ if (window.location.pathname == '/js19.html') {
 
 //Native Speech Recognition
 if (window.location.pathname == '/js20.html') {
+    if ("webkitSpeechRecognition" in window) {
+        var i = 0;
+        let p = document.createElement('p');
+        let speechRecognition = new webkitSpeechRecognition();
+        let printed_words = document.querySelector(".words")
+        speechRecognition.continuous = true;
+        speechRecognition.interimResults = true;
+        speechRecognition.lang = "pl-PL";
+        speechRecognition.onstart = () => {
+            printed_words.appendChild(p);
+        }
+        speechRecognition.onresult = (e) => {
+            let spoken_words = e.results.length;
+            if (e.results[spoken_words - 1].isFinal) {
+                for (i; i < spoken_words; i++) {
+                    p = document.createElement('p');
+                    printed_words.appendChild(p);
+                    printed_words.lastChild.textContent += e.results[i][0].transcript;
+                }
+            }
+        }
+        speechRecognition.start();
 
+    } else {
+        alert("Speech Recognition Not Available")
+    }
 }
