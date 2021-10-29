@@ -34,16 +34,41 @@
     <div class="container p-3 bg-dark " style=" border-radius: 2rem; color:#e6e6e6 ">
         <h1 style="text-align:center"> Challenge 20 : Native Speech Recognition </h1>
         <p style="text-indent:1rem;margin-bottom:0;">
-        </p>
-        <div class="container my-3" id="challengeContainer">
             Wyzwanie polega na wykrywaniu wypowiadanych słów i wypisaniu ich.
+        </p>
+        <div class="container my-3 words" id="challengeContainer">
         </div>
 
         <p style="text-indent:1rem;margin-bottom:0;">
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
-        <div class="container my-3 p-2 words" id="challengeCode">
+        <div class="container my-3 p-2" id="challengeCode">
+            if ("webkitSpeechRecognition" in window) {
+            var i = 0;
+            let p = document.createElement('p');
+            let speechRecognition = new webkitSpeechRecognition();
+            let printed_words = document.querySelector(".words")
+            speechRecognition.continuous = true;
+            speechRecognition.interimResults = true;
+            speechRecognition.lang = "pl-PL";
+            speechRecognition.onstart = () => {
+            printed_words.appendChild(p);
+            }
+            speechRecognition.onresult = (e) => {
+            let spoken_words = e.results.length;
+            if (e.results[spoken_words - 1].isFinal) {
+            for (i; i < spoken_words; i++) {
+            p = document.createElement('p');
+            printed_words.appendChild(p);
+            printed_words.lastChild.textContent += e.results[i][0].transcript;
+            }
+            }
+            }
+            speechRecognition.start();
 
+            } else {
+            alert("Speech Recognition Not Available")
+            }
         </div>
     </div>
 

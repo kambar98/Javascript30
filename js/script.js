@@ -1,3 +1,5 @@
+//import { create } from "browser-sync";
+
     window.onload = function ()
     {
     // function that adding pages to dropdown
@@ -882,5 +884,26 @@ if (window.location.pathname == '/js20.html') {
 }
 //Geolocation based Speedometer and Compass
 if (window.location.pathname == '/js21.html') {
+    window.addEventListener('load', function () {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
 
+        function showPosition(position) {
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: { lat: position.coords.latitude, lng: position.coords.longitude }
+            });
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+                map: map
+            });
+
+        }
+    })
+  
+    
 }
