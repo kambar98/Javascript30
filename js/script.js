@@ -890,7 +890,6 @@ if (window.location.pathname == '/js21.html') {
         } else {
             alert("Geolocation is not supported by this browser.");
         }
-
         function showPosition(position) {
             var map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 10,
@@ -901,9 +900,10 @@ if (window.location.pathname == '/js21.html') {
                 position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
                 map: map
             });
-
         }
     })
-  
-    
+}
+// Follow Along Links
+if (window.location.pathname == '/js22.html') {
+
 }
