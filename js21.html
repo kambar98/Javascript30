@@ -10,6 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoYIPz6cs3kYqEyxArWiwBJ4660DoWsYw&callback=initMap&v=weekly&channel=2"
+            ></script>
 </head>
 <body style="background-color: #e6e6e6">
     <div class="container p-3 my-3 border">
@@ -37,14 +39,31 @@
             Wyzwanie polega na pobraniu lokalizacji użytkownika (Z racji ograniczeń przedstawiona zostanie lokalizacja na mapie bez kompasu).
         </p>
         <div class="container my-3" id="challengeContainer">
-
+            <div id="map" style="width: 500px; height: 400px;"></div>
         </div>
 
         <p style="text-indent:1rem;margin-bottom:0;">
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
         <div class="container my-3 p-2" id="challengeCode">
+            window.addEventListener('load', function () {
+            if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+            alert("Geolocation is not supported by this browser.");
+            }
+            function showPosition(position) {
+            var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 10,
+            center: { lat: position.coords.latitude, lng: position.coords.longitude }
+            });
 
+            var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+            map: map
+            });
+            }
+            })
         </div>
     </div>
 
