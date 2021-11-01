@@ -582,28 +582,31 @@ challenge_22-wrapper {
     color: black;
     background: rgba(0,0,0,0.05);
     border-radius: 20px;
+    position: relative;
+    z-index:2;
 }
-
-.challenge_22 .highlight {
+.highlight {
     transition: all 0.2s;
     border-bottom: 2px solid white;
     position: absolute;
     top: 0;
     background: white;
     left: 0;
-    z-index: -1;
+    z-index: 1;
     border-radius: 20px;
     display: block;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 .challenge_22 .menu {
-        padding: 0;
-        display: flex;
-        list-style: none;
-        justify-content: center;
-        margin: 100px 0;
-    }
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin: 100px 0;
+    position: relative;
+    z-index: 2;
+}
 
 .challenge_22 .menu a {
     display: inline-block;
