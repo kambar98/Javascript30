@@ -2,7 +2,7 @@
 
     window.onload = function ()
     {
-    // function that adding pages to dropdown
+    // function that adds pages to dropdown
     var j = 0;
     var numberOfPages = 31;
     document.getElementById("dropdown-row").innerHTML += "<div class='col-xs-4' id='colRow" + j + "'" + "></div>";
@@ -905,5 +905,19 @@ if (window.location.pathname == '/js21.html') {
 }
 // Follow Along Links
 if (window.location.pathname == '/js22.html') {
+    const href_elements = document.querySelectorAll('a[href=""]');
+    const hightlight_span = document.createElement("span");
+    hightlight_span.classList.add("highlight");
+    document.body.appendChild(hightlight_span);
+    href_elements.forEach((el) => {
+        el.addEventListener("mouseenter", hightlight)
+    })
+    function hightlight() {
+        let position = this.getBoundingClientRect();
+        hightlight_span.style.width = position.width + 'px';
+        hightlight_span.style.height = position.height + 'px';
+        hightlight_span.style.left = position.left + window.scrollX + 'px';
+        hightlight_span.style.top = position.top + window.scrollY + 'px';
+    }
 
 }
