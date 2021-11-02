@@ -32,11 +32,30 @@
     </div>
 
     <div class="container p-3 bg-dark " style=" border-radius: 2rem; color:#e6e6e6 ">
-        <h1 style="text-align:center"> Challenge  : </h1>
+        <h1 style="text-align:center"> Challenge 23 : Speech Synthesis </h1>
         <p style="text-indent:1rem;margin-bottom:0;">
+            Wyzwanie polega na stworzeniu syntezatora mowy.
         </p>
         <div class="container my-3" id="challengeContainer">
+            <div class="voiceinator">
 
+                <h1>The Voiceinator 5000</h1>
+
+                <select name="voice" id="voices">
+                    <option value="">Select A Voice</option>
+                </select>
+
+                <label for="rate">Rate:</label>
+                <input name="rate" type="range" min="0" max="3" value="1" step="0.1">
+
+                <label for="pitch">Pitch:</label>
+
+                <input name="pitch" type="range" min="0" max="2" step="0.1">
+                <textarea name="text">Hello! I love JavaScript 👍</textarea>
+                <button id="stop">Stop!</button>
+                <button id="speak">Speak</button>
+
+            </div>
         </div>
 
         <p style="text-indent:1rem;margin-bottom:0;">

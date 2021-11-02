@@ -921,3 +921,8 @@ if (window.location.pathname == '/js22.html') {
     }
 
 }
+
+//Speech Synthesis
+if (window.location.pathname == '/js23.html') {
+
+}
