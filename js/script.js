@@ -924,5 +924,35 @@ if (window.location.pathname == '/js22.html') {
 
 //Speech Synthesis
 if (window.location.pathname == '/js23.html') {
+    window.speechSynthesis.onvoiceschanged = function () {
+        let voices_list = document.querySelector('#voices');
+        let synth = window.speechSynthesis;
+        let voices = synth.getVoices();
+        let option = document.createElement('option');
+        document.querySelector('#stop').addEventListener('click', stopLector);
+        document.querySelector('#speak').addEventListener('click', startLector);
 
+        for (var i = 0; i < voices.length; i++) {
+            option = document.createElement('option');
+            option.innerText = voices[i].name;
+            option.value = voices[i].lang;
+            voices_list.appendChild(option);
+        }
+
+        function stopLector() {
+            synth.cancel();
+        }
+
+        function startLector() {
+            let synth_text = document.querySelector('[name="text"]');
+            let rate = document.querySelector('[name="rate"]');
+            let pitch = document.querySelector('[name="pitch"]');
+            let value = voices_list.options[voices_list.selectedIndex].value;
+            let utterance = new SpeechSynthesisUtterance(synth_text.value);
+            utterance.lang = value;
+            utterance.pitch = pitch.value;
+            utterance.rate = rate.value;
+            synth.speak(utterance);
+        }
+    };
 }

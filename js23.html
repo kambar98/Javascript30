@@ -51,7 +51,7 @@
                 <label for="pitch">Pitch:</label>
 
                 <input name="pitch" type="range" min="0" max="2" step="0.1">
-                <textarea name="text">Hello! I love JavaScript 👍</textarea>
+                <textarea name="text" placeholder="Enter the text...">Hello!</textarea>
                 <button id="stop">Stop!</button>
                 <button id="speak">Speak</button>
 
@@ -62,7 +62,33 @@
             Kod w javaScript który posłużył do zrobienia zadania:
         </p>
         <div class="container my-3 p-2" id="challengeCode">
+            window.speechSynthesis.onvoiceschanged = function () {
+            let voices_list = document.querySelector('#voices');
+            let synth = window.speechSynthesis;
+            let voices = synth.getVoices();
+            let option = document.createElement('option');
+            document.querySelector('#stop').addEventListener('click', stopLector);
+            document.querySelector('#speak').addEventListener('click', startLector);
 
+            for (var i = 0; i < voices.length; i++) {
+            option = document.createElement('option');
+            option.innerText = voices[i].name;
+            option.value = voices[i].lang;
+            voices_list.appendChild(option);
+            }
+
+            function stopLector() {
+            synth.cancel();
+            }
+
+            function startLector() {
+            let synth_text = document.querySelector('[name="text"]');
+            let value = voices_list.options[voices_list.selectedIndex].value;
+            let utterance = new SpeechSynthesisUtterance(synth_text.value);
+            utterance.lang = value;
+            synth.speak(utterance);
+            }
+            };
         </div>
     </div>
 
