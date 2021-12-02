@@ -140,7 +140,10 @@ window.onload = function() {
         );
         //Check when number of { is equal to }
         for (var i = 0; i < left_bracket.length; i++) {
-          if (left_bracket[i + 1] > right_bracket[i]) {
+          if (
+            left_bracket[i + 1] > right_bracket[i] ||
+            left_bracket[i + 1] == undefined
+          ) {
             selected_challenge_code = sliced_result.substring(
               1,
               right_bracket[i]
@@ -148,22 +151,24 @@ window.onload = function() {
             break;
           }
         }
-        //Adding jsWord class to special words and </br> tag for new line
-        let array_challenge_code = selected_challenge_code
-          .split(" ")
-          .filter(a => a);
-        let map_challenge = array_challenge_code.map(item => {
-          if (logic_array.includes(item)) {
-            item = '<span class="jsWord">' + item + "</span>";
-          }
-          if (item.indexOf("\r\n") != -1) {
-            item = item + "</br>";
-            return item;
-          } else {
-            return item;
-          }
-        });
-        challenge_code.innerHTML = map_challenge.join(" ");
+        if (selected_challenge_code) {
+          //Adding jsWord class to special words and </br> tag for new line
+          let array_challenge_code = selected_challenge_code
+            .split(" ")
+            .filter(a => a);
+          let map_challenge = array_challenge_code.map(item => {
+            if (logic_array.includes(item)) {
+              item = '<span class="jsWord">' + item + "</span>";
+            }
+            if (item.indexOf("\r\n") != -1) {
+              item = item + "</br>";
+              return item;
+            } else {
+              return item;
+            }
+          });
+          challenge_code.innerHTML = map_challenge.join(" ");
+        }
       }
     });
   }
@@ -1151,7 +1156,20 @@ window.onload = function() {
       }
     };
   }
+  /*Sticky Nav*/
   if (current_page == 24) {
-    /*Sticky Nav*/
+    const nav = document.querySelector("#main");
+    const main_nav = document.querySelector(".navbar");
+    const offsetNav = nav.offsetTop;
+    const logo = document.querySelector(".logo");
+    function moveNav() {
+      if (window.scrollY + main_nav.offsetHeight > offsetNav) {
+        nav.style.top = window.scrollY - offsetNav + "px";
+        logo.style.maxWidth = "300px";
+      } else {
+        logo.style.maxWidth = "0px";
+      }
+    }
+    window.addEventListener("scroll", moveNav);
   }
 };
