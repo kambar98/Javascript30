@@ -1172,4 +1172,10 @@ window.onload = function() {
     }
     window.addEventListener("scroll", moveNav);
   }
+
+  if (current_page == 25) {
+  }
+  /*Stripe Follow Along Dropdown Navigation*/
+  if (current_page == 26) {
+  }
 };
