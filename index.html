@@ -6,20 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="js/script.js" async></script>
+    <link rel="shortcut icon" href="#">
+    <script src="js/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoYIPz6cs3kYqEyxArWiwBJ4660DoWsYw&v=weekly&channel=2"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </head>
-<body style="background-color: #e6e6e6">
-    <div class="container p-3 my-3 border">
+<body>
+    <div class="container p-3 border">
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" style="background-color: #262626 !important;">
             <div style="display:flex">
-                <a class="navbar-brand" href="index.html">JavaScript30</a>
+                <a class="navbar-brand">JavaScript30</a>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown ">
                         <button class="btn btn-secondary dropdown-toggle bg-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Wyzwania
+                            Challenges
                         </button>
                         <div class="dropdown-menu" id="dropdown" aria-labelledby="dropdownMenuButton">
                             <div class="row" id="dropdown-row">
@@ -30,23 +34,806 @@
             </div>
         </nav>
     </div>
+     <div class="row">
+         <div class="col-sm-2 main-arrows" id="left-arrow-container"><p id="left-arrow">&#8678;</p></div>
+         <div class="col-sm-8">
+             <div class="container p-3 challenge-body">
+                 <div class="challenges" id="id-0">
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         On the page <a href="http://JavaScript30.com">http://JavaScript30.com, </a> you can find 30 challenges which you have to pass, to each challenge you can find a video where author is explaining how to do it. It's recommended to finish challenge by you own.
+                     </p>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The purpose of that challenge is to finish all 30 tasks in 30 days
+                         Access to that challenge is free.<br/>
+                     </p>
+                     <p style="text-indent:1rem">
+                         On my page you will find a panel from where you can go to the different  tasks, each contains short description what you have to do in that particular task.
+                         Under that description you will find my code.
+                     </p>
+                 </div>
+                 <div class="challenges" id="id-1">
+                     <h1 style="text-align:center"> Challenge 1 : JavaScript Drum Kit</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The first challenge is to create drums that respond to the keys you press.
+                     </p>
+                     <div class="container my-3 challengeContainer" id=" challenge_1">
+                         <div class="container" id="drumCollection" style="padding:1rem; display:flex;">
+                             <div class="drumDiv" id="A">
+                                 <div class="drumCharacter">
+                                     A
+                                 </div>
+                                 <div class="drumSound">
+                                     CLAP
+                                 </div>
+                                 <audio></audio>
+                             </div>
+                             <div class="drumDiv" id="S">
+                                 <div class="drumCharacter">
+                                     S
+                                 </div>
+                                 <div class="drumSound">
+                                     HIHAT
+                                 </div>
+                             </div>
+                             <div class="drumDiv" id="D">
+                                 <div class="drumCharacter">
+                                     D
+                                 </div>
+                                 <div class="drumSound">
+                                     KICK
+                                 </div>
+                             </div>
+                             <div class="drumDiv" id="F">
+                                 <div class="drumCharacter">
+                                     F
+                                 </div>
+                                 <div class="drumSound">
+                                     OPENHAT
+                                 </div>
+                             </div>
+                             <div class="drumDiv" id="G">
+                                 <div class="drumCharacter">
+                                     G
+                                 </div>
+                                 <div class="drumSound">
+                                     BOOM
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <audio id="boom" src="drumSound/boom.wav"></audio>
+                     <audio id="clap" src="drumSound/clap.wav"></audio>
+                     <audio id="hihat" src="drumSound/hihat.wav"></audio>
+                     <audio id="kick" src="drumSound/kick.wav"></audio>
+                     <audio id="openhat" src="drumSound/openhat.wav"></audio>
+                 </div>
+                 <div class="challenges" id="id-2">
+                     <h1 style="text-align:center"> Challenge 2 : Clock </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         Challenge 2 is to create a clock
+                     </p>
+                     <div class="container my-3 p-3 challengeContainer" id=" challenge_2">
+                         <div id="clock">
+                             <div id="firstCircle">
+                                 <div class="hand hour" id="hour">s</div>
+                                 <div class="hand minute" id="minute"></div>
+                                 <div class="hand second" id="second"></div>
+                                 <div class="number number1">1</div>
+                                 <div class="number number2">2</div>
+                                 <div class="number number3">3</div>
+                                 <div class="number number4">4</div>
+                                 <div class="number number5">5</div>
+                                 <div class="number number6">6</div>
+                                 <div class="number number7">7</div>
+                                 <div class="number number8">8</div>
+                                 <div class="number number9">9</div>
+                                 <div class="number number10">10</div>
+                                 <div class="number number11">11</div>
+                                 <div class="number number11">11</div>
+                                 <div class="number number12">12</div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-3">
+                     <h1 style="text-align:center"> Challenge 3: Update CSS Variables with JS</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         In a given task, you need to create components with which you can influence the properties of the image.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_3" style=" display: flex; flex-direction: column;">
+                         <div class="container p-3 m-3" style="display: flex;">
+                             <div id="controls">
+                                 <label for="blur">Blur:</label>
+                                 <input type="range" name="blur" min="0" max="200" value="0" id="blur" />
+                                 <label for="spacing">Spacing:</label>
+                                 <input type="range" name="spacing" min="0" max="200" value="0" id="spacing" />
+                                 <label for="backgrounColor">Color:</label>
+                                 <input type="color" name="backgroundColor" value="#000000" style=" width: 5rem; height: 3rem;" id="backgroundColor" />
+                             </div>
+                         </div>
 
-    <div class="container p-3 bg-dark " style=" border-radius: 2rem; color:#e6e6e6 ">
-        <p style="text-indent:1rem;margin-bottom:0;">
-            Na stronie wyzwania <a href="http://JavaScript30.com">http://JavaScript30.com, </a>znajdują się 30 wyzwań które należy przejść, do każdego wyzwania zawarty jest filmik w którym autor wyzwania tłumaczy jak dane zadanie zrobić,
-            jednakże zalecane jest podejście do wyzwań (w celu nauki) bez wsparcia i gotowych rozwiązań.
-        </p>
-        <p style="text-indent:1rem;margin-bottom:0;">
-            Wyzwanie to zakłada zrobienie 30 projektów JavaScript w 30 dni.
-            Dostęp do wyzwania jest darmowy. A więc każdy może spróbować.<br />
-        </p>
-        <p style="text-indent:1rem">
-            Na mojej stronie znajdziesz panel z którego można przejść do wyzwania wraz z krótkim opisem co należy w danym wyzwaniu zrobić.
-            Pod opisem znajduję sie moje rozwiązanie wraz z kodem który posłużył mi do rozwiązania danego problemu.
-        </p>
+                         <img src="img/challenge3.jpg" id="challenge3Img">
 
-    </div>
 
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-4">
+                     <h1 style="text-align:center"> Challenge 4 : Array Cardio Day 1 </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The following tasks should be performed on the following objects::
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_4">
+                         <p style="text-indent:1rem;margin-bottom:0;">
+                             <br />
+                             <ol>
+                                 <li>
+                                     Filter the list of inventions for those born in 1500
+                                 </li>
+                                 <li>
+                                     Provide an array of names and surnames of inventors
+                                 </li>
+                                 <li>
+                                     Sort inventors by date of birth, from oldest to youngest
+                                 </li>
+                                 <li>
+                                     How many years did all inventors live together?
+                                 </li>
+                                 <li>
+                                     Sort inventors by years
+                                 </li>
+                                 <li>
+                                     make a list of Paris boulevards that contain "de" anywhere in their name<br />
+                                     https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+                                 </li>
+                                 <li>Sort people alphabetically by last name</li>
+                                 <li>Sum the occurrences of each of them (data array)</li>
+                             </ol>
+                         </p>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-5">
+                     <h1 style="text-align:center"> Challenge 5 : Flex Panels Image Gallery</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The challenge is to create a panel gallery, after clicking on a given panel, its extension.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_5">
+                         <div class="challenge_5">
+                             <img src="img/challenge5_1.jpg" class="img_challenge5 img1">
+                             <img src="img/challenge5_2.jpg" class="img_challenge5 img2">
+                             <img src="img/challenge5_3.jpg" class="img_challenge5 img3">
+                             <img src="img/challenge5_4.jpg" class="img_challenge5 img4">
+                             <img src="img/challenge5_5.jpg" class="img_challenge5 img5">
+                         </div>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-6">
+                     <h1 style="text-align:center"> Challenge 6 : Ajax Type Ahead </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The challenge is to create a dynamic city search engine in the US with its population.
+                     </p>
+                     <div class="container my-3 p-2 challengeContainer" id="challenge_6">
+                         <div class="input-group p-3">
+                             <input type="text" class="form-control" placeholder="Type USA city..." id="challenge_6_input">
+
+                         </div>
+                         <ul id="City_research">
+                         </ul>
+                         <button type="button" class="btn btn-info" id="show_more">Show All...</button>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-7">
+                     <h1 style="text-align:center"> Challenge 7 : Array Cardio Day 2  </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The following tasks should be performed on the following objects:<br />
+                         <ol>
+                             <li>The object has at least one person 19 years of age or older? (Array.prototype.some ())</li>
+                             <li>Is everyone 19 or older (Array.prototype.every ())</li>
+                             <li>
+                                 Find the comment with the ID 823423 (Array.prototype.find ()
+                             </li>
+                             <li>
+                                 Find a comment with this ID (Array.prototype.findIndex ())
+                             </li>
+                             <li>
+                                 Delete the comment with the ID 823423
+                             </li>
+                         </ol>
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_7">
+
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-8">
+                     <h1 style="text-align:center"> Challenge 8 : Canvas </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The challenge is to create a drawing area with the mouse using the canvas. The thickness of the lines is regulated by the wheel on the mouse.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_8">
+                         <canvas id="canvas_draw" height="500" width="500"></canvas>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-9">
+                     <h1 style="text-align:center"> Challenge 9 : 14 Must Know Chrome Dev Tools Tricks</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         Developer tricks are presented in a given challenge.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_9">
+                         <a href="https://youtu.be/xkzDaKwinA8?controls=1" style="color:blue;"> LINK DO SZKOLENIA </a>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-10">
+                     <h1 style="text-align:center"> Challenge 10 : Hold Shift to Check Multiple Checkboxes </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+
+                         The task was to create a form in which, holding shift, we have the option of selecting more checkboxes.
+
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_10">
+                         <div class="inbox">
+                             <div class="item">
+                                 <input type="checkbox">
+                                 <p>This is an inbox layout.</p>
+                             </div>
+                             <div class="item">
+                                 <input type="checkbox">
+                                 <p>Check one item</p>
+                             </div>
+                             <div class="item">
+                                 <input type="checkbox">
+                                 <p>Hold down your Shift key</p>
+                             </div>
+                             <div class="item">
+                                 <input type="checkbox">
+                                 <p>Check a lower item</p>
+                             </div>
+                             <div class="item">
+                                 <input type="checkbox">
+                                 <p>Everything in between should also be set to checked</p>
+                             </div>
+                             <div class="item">
+                                 <input type="checkbox">
+                                 <p>Try to do it without any libraries</p>
+                             </div>
+                             <div class="item">
+                                 <input type="checkbox">
+                                 <p>Just regular JavaScript</p>
+                             </div>
+                             <div class="item">
+                                 <input type="checkbox">
+                                 <p>Good Luck!</p>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-11">
+                     <h1 style="text-align:center"> Challenge 11 : Custom HTML5 Video Player</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+
+                         The challenge is to create a custom player.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_11">
+                         <div class="player" id="player_box">
+                             <video id="player_video" src="video/652333414.mp4"></video>
+                             <div id="video_controls">
+                                 <button id="playPausebtn"><i class="fas fa-play"></i></button>
+                                 <input id="slider" type="range" min="0" max="100" value="0" step="1" />
+                                 <div id="videoTime">
+                                     <span id="currentTimeText"></span>
+                                     <span id="durationTimeText"></span>
+                                 </div>
+                                 <button id="mute"><i class="fas fa-volume-mute"></i></button>
+                                 <input id="volume_slider" type="range" min="0" max="100" value="100" step="1" />
+                                 <button id="fullscreen_btn"><i class="fas fa-expand-arrows-alt"></i></button>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-12">
+                     <h1 style="text-align:center"> Challenge 12 : Key sequence detection (KONAMI CODE)</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+
+                         The challenge is to detect when you press a specific sequence of keys.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_12">
+
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-13">
+                     <h1 style="text-align:center"> Challenge 13 : Slide in on scroll</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The challenge is for the images to appear along with the page scrolling.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_13">
+                         <div class="site-wrap">
+
+                             <h1>Slide in on Scroll</h1>
+
+                             <p>Consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariaturlores sunt esse magni, ut, dignissimos.</p>
+                             <p>Lorem ipsum cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+                             <p>Adipisicing elit. Tempore tempora rerum..</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+
+                             <img src="http://unsplash.it/400/400" class="align-left slide-in">
+
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, deserunt facilis et iste corrupti omnis tenetur est. Iste ut est dicta dolor itaque adipisci, dolorum minima, veritatis earum provident error molestias. Ratione magni illo sint vel velit ut excepturi consectetur suscipit, earum modi accusamus voluptatem nostrum, praesentium numquam, reiciendis voluptas sit id quisquam. Consequatur in quis reprehenderit modi perspiciatis necessitatibus saepe, quidem, suscipit iure natus dignissimos ipsam, eligendi deleniti accusantium, rerum quibusdam fugit perferendis et optio recusandae sed ratione. Culpa, dolorum reprehenderit harum ab voluptas fuga, nisi eligendi natus maiores illum quas quos et aperiam aut doloremque optio maxime fugiat doloribus. Eum dolorum expedita quam, nesciunt</p>
+
+                             <img src="http://unsplash.it/400/401" class="align-right slide-in">
+
+                             <p> at provident praesentium atque quas rerum optio dignissimos repudiandae ullam illum quibusdam. Vel ad error quibusdam, illo ex totam placeat. Quos excepturi fuga, molestiae ea quisquam minus, ratione dicta consectetur officia omnis, doloribus voluptatibus? Veniam ipsum veritatis architecto, provident quas consequatur doloremque quam quidem earum expedita, ad delectus voluptatum, omnis praesentium nostrum qui aspernatur ea eaque adipisci et cumque ab? Ea voluptatum dolore itaque odio. Eius minima distinctio harum, officia ab nihil exercitationem. Tempora rem nemo nam temporibus molestias facilis minus ipsam quam doloribus consequatur debitis nesciunt tempore officiis aperiam quisquam, molestiae voluptates cum, fuga culpa. Distinctio accusamus quibusdam, tempore perspiciatis dolorum optio facere consequatur quidem ullam beatae architecto, ipsam sequi officiis dignissimos amet impedit natus necessitatibus tenetur repellendus dolor rem! Dicta dolorem, iure, facilis illo ex nihil ipsa amet officia, optio temporibus eum autem odit repellendus nisi. Possimus modi, corrupti error debitis doloribus dicta libero earum, sequi porro ut excepturi nostrum ea voluptatem nihil culpa? Ullam expedita eligendi obcaecati reiciendis velit provident omnis quas qui in corrupti est dolore facere ad hic, animi soluta assumenda consequuntur reprehenderit! Voluptate dolor nihil veniam laborum voluptas nisi pariatur sed optio accusantium quam consectetur, corrupti, sequi et consequuntur, excepturi doloremque. Tempore quis velit corporis neque fugit non sequi eaque rem hic. Facere, inventore, aspernatur. Accusantium modi atque, asperiores qui nobis soluta cumque suscipit excepturi possimus doloremque odit saepe perferendis temporibus molestiae nostrum voluptatum quis id sint quidem nesciunt culpa. Rerum labore dolor beatae blanditiis praesentium explicabo velit optio esse aperiam similique, voluptatem cum, maiores ipsa tempore. Reiciendis sed culpa atque inventore, nam ullam enim expedita consectetur id velit iusto alias vitae explicabo nemo neque odio reprehenderit soluta sint eaque. Aperiam, qui ut tenetur, voluptate doloremque officiis dicta quaerat voluptatem rerum natus magni. Eum amet autem dolor ullam.</p>
+
+                             <img src="http://unsplash.it/200/500" class="align-left slide-in">
+
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maiores adipisci quibusdam repudiandae dolor vero placeat esse sit! Quibusdam saepe aperiam explicabo placeat optio, consequuntur nihil voluptatibus expedita quia vero perferendis, deserunt et incidunt eveniet <img src="http://unsplash.it/200/200" class="align-right slide-in"> temporibus doloremque possimus facilis. Possimus labore, officia dolore! Eaque ratione saepe, alias harum laboriosam deserunt laudantium blanditiis eum explicabo placeat reiciendis labore iste sint. Consectetur expedita dignissimos, non quos distinctio, eos rerum facilis eligendi. Asperiores laudantium, rerum ratione consequatur, culpa consectetur possimus atque ab tempore illum non dolor nesciunt. Neque, rerum. A vel non incidunt, quod doloremque dignissimos necessitatibus aliquid laboriosam architecto at cupiditate commodi expedita in, quae blanditiis. Deserunt labore sequi, repellat laboriosam est, doloremque culpa reiciendis tempore excepturi. Enim nostrum fugit itaque vel corporis ullam sed tenetur ipsa qui rem quam error sint, libero. Laboriosam rem, ratione. Autem blanditiis</p>
+
+
+                             <p>laborum neque repudiandae quam, cumque, voluptate veritatis itaque, placeat veniam ad nisi. Expedita, laborum reprehenderit ratione soluta velit natus, odit mollitia. Corporis rerum minima fugiat in nostrum. Assumenda natus cupiditate hic quidem ex, quas, amet ipsum esse dolore facilis beatae maxime qui inventore, iste? Maiores dignissimos dolore culpa debitis voluptatem harum, excepturi enim reiciendis, tempora ab ipsam illum aspernatur quasi qui porro saepe iure sunt eligendi tenetur quaerat ducimus quas sequi omnis aperiam suscipit! Molestiae obcaecati officiis quo, ratione eveniet, provident pariatur. Veniam quasi expedita distinctio, itaque molestiae sequi, dolorum nisi repellendus quia facilis iusto dignissimos nam? Tenetur fugit quos autem nihil, perspiciatis expedita enim tempore, alias ab maiores quis necessitatibus distinctio molestias eum, quidem. Delectus impedit quidem laborum, fugit vel neque quo, ipsam, quasi aspernatur quas odio nihil? Veniam amet reiciendis blanditiis quis reprehenderit repudiandae neque, ab ducimus, odit excepturi voluptate saepe ipsam. Voluptatem eum error voluptas porro officiis, amet! Molestias, fugit, ut! Tempore non magnam, amet, facere ducimus accusantium eos veritatis neque.</p>
+
+                             <img src="http://unsplash.it/400/400" class="align-right slide-in">
+
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maiores adipisci quibusdam repudiandae dolor vero placeat esse sit! Quibusdam saepe aperiam explicabo placeat optio, consequuntur nihil voluptatibus expedita quia vero perferendis, deserunt et incidunt eveniet temporibus doloremque possimus facilis. Possimus labore, officia dolore! Eaque ratione saepe, alias harum laboriosam deserunt laudantium blanditiis eum explicabo placeat reiciendis labore iste sint. Consectetur expedita dignissimos, non quos distinctio, eos rerum facilis eligendi. Asperiores laudantium, rerum ratione consequatur, culpa consectetur possimus atque ab tempore illum non dolor nesciunt. Neque, rerum. A vel non incidunt, quod doloremque dignissimos necessitatibus aliquid laboriosam architecto at cupiditate commodi expedita in, quae blanditiis. Deserunt labore sequi, repellat laboriosam est, doloremque culpa reiciendis tempore excepturi. Enim nostrum fugit itaque vel corporis ullam sed tenetur ipsa qui rem quam error sint, libero. Laboriosam rem, ratione. Autem blanditiis laborum neque repudiandae quam, cumque, voluptate veritatis itaque, placeat veniam ad nisi. Expedita, laborum reprehenderit ratione soluta velit natus, odit mollitia. Corporis rerum minima fugiat in nostrum. Assumenda natus cupiditate hic quidem ex, quas, amet ipsum esse dolore facilis beatae maxime qui inventore, iste? Maiores dignissimos dolore culpa debitis voluptatem harum, excepturi enim reiciendis, tempora ab ipsam illum aspernatur quasi qui porro saepe iure sunt eligendi tenetur quaerat ducimus quas sequi omnis aperiam suscipit! Molestiae obcaecati officiis quo, ratione eveniet, provident pariatur. Veniam quasi expedita distinctio, itaque molestiae sequi, dolorum nisi repellendus quia facilis iusto dignissimos nam? Tenetur fugit quos autem nihil, perspiciatis expedita enim tempore, alias ab maiores quis necessitatibus distinctio molestias eum, quidem. Delectus impedit quidem laborum, fugit vel neque quo, ipsam, quasi aspernatur quas odio nihil? Veniam amet reiciendis blanditiis quis reprehenderit repudiandae neque, ab ducimus, odit excepturi voluptate saepe ipsam. Voluptatem eum error voluptas porro officiis, amet! Molestias, fugit, ut! Tempore non magnam, amet, facere ducimus accusantium eos veritatis neque.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maiores adipisci quibusdam repudiandae dolor vero placeat esse sit! Quibusdam saepe aperiam explicabo placeat optio, consequuntur nihil voluptatibus expedita quia vero perferendis, deserunt et incidunt eveniet temporibus doloremque possimus facilis. Possimus labore, officia dolore! Eaque ratione saepe, alias harum laboriosam deserunt laudantium blanditiis eum explicabo placeat reiciendis labore iste sint. Consectetur expedita dignissimos, non quos distinctio, eos rerum facilis eligendi. Asperiores laudantium, rerum ratione consequatur, culpa consectetur possimus atque ab tempore illum non dolor nesciunt. Neque, rerum. A vel non incidunt, quod doloremque dignissimos necessitatibus aliquid laboriosam architecto at cupiditate commodi expedita in, quae blanditiis. Deserunt labore sequi, repellat laboriosam est, doloremque culpa reiciendis tempore excepturi. Enim nostrum fugit itaque vel corporis ullam sed tenetur ipsa qui rem quam error sint, libero. Laboriosam rem, ratione. Autem blanditiis laborum neque repudiandae quam, cumque, voluptate veritatis itaque, placeat veniam ad nisi. Expedita, laborum reprehenderit ratione soluta velit natus, odit mollitia. Corporis rerum minima fugiat in nostrum. Assumenda natus cupiditate hic quidem ex, quas, amet ipsum esse dolore facilis beatae maxime qui inventore, iste? Maiores dignissimos dolore culpa debitis voluptatem harum, excepturi enim reiciendis, tempora ab ipsam illum aspernatur quasi qui porro saepe iure sunt eligendi tenetur quaerat ducimus quas sequi omnis aperiam suscipit! Molestiae obcaecati officiis quo, ratione eveniet, provident pariatur. Veniam quasi expedita distinctio, itaque molestiae sequi, dolorum nisi repellendus quia facilis iusto dignissimos nam? Tenetur fugit quos autem nihil, perspiciatis expedita enim tempore, alias ab maiores quis necessitatibus distinctio molestias eum, quidem. Delectus impedit quidem laborum, fugit vel neque quo, ipsam, quasi aspernatur quas odio nihil? Veniam amet reiciendis blanditiis quis reprehenderit repudiandae neque, ab ducimus, odit excepturi voluptate saepe ipsam. Voluptatem eum error voluptas porro officiis, amet! Molestias, fugit, ut! Tempore non magnam, amet, facere ducimus accusantium eos veritatis neque.</p>
+
+
+
+
+                         </div>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-14">
+                     <h1 style="text-align:center"> Challenge 14 : Object and Arrays - Reference VS copy</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The given challenge presents the principle of object and array reference in js, and how to make a copy of them.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_14">
+                         <a href="https://www.youtube.com/watch?v=YnfwDQ5XYF4&ab_channel=WesBos" style="color:blue;"> LINK DO SZKOLENIA </a>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-15">
+                     <h1 style="text-align:center"> Challenge 15 : LocalStorage and Event Delegation</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+
+                         The challenge was to create a list that is stored in localStorage.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_15">
+                         <div class="wrapper">
+                             <h2>LOCAL TAPAS</h2>
+                             <p></p>
+                             <ul class="plates">
+                                 <li id="loadingItem">Loading Tapas...</li>
+                             </ul>
+                             <form class="add-items">
+                                 <input type="text" name="item" placeholder="Item Name" id="addedItem" required>
+                                 <input type="submit" value="+ Add Item">
+                             </form>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-16">
+                     <h1 style="text-align:center"> Challenge 16 : CSS Text Shadow Mouse Move effect</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+
+                         The task is to create a dynamic string shadow depending on the cursor position.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_16">
+                         <div class="hero">
+                             <h1 contenteditable>🔥WOAH!</h1>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-17">
+                     <h1 style="text-align:center"> Challenge 17 : Sorting Band Names without articles</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The task is to sort the table alphabetically, omitting the articles.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_17">
+                         <ul id="list">
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-18">
+                     <h1 style="text-align:center"> Challenge 18 : Tally String Times with Reduce</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+
+                         Count the duration of all videos.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_18">
+                         <ul class="videos">
+                             <li data-time="5:43">
+                                 Video 1
+                             </li>
+                             <li data-time="2:35">
+                                 Video 2
+                             </li>
+                             <li data-time="3:45">
+                                 Video 3
+                             </li>
+                             <li data-time="0:47">
+                                 Video 4
+                             </li>
+                             <li data-time="5:21">
+                                 Video 5
+                             </li>
+                             <li data-time="6:56">
+                                 Video 6
+                             </li>
+                             <li data-time="3:46">
+                                 Video 7
+                             </li>
+                             <li data-time="5:25">
+                                 Video 8
+                             </li>
+                             <li data-time="3:14">
+                                 Video 9
+                             </li>
+                             <li data-time="3:31">
+                                 Video 10
+                             </li>
+                             <li data-time="5:59">
+                                 Video 11
+                             </li>
+                             <li data-time="3:07">
+                                 Video 12
+                             </li>
+                             <li data-time="11:29">
+                                 Video 13
+                             </li>
+                             <li data-time="8:57">
+                                 Video 14
+                             </li>
+                             <li data-time="5:49">
+                                 Video 15
+                             </li>
+                             <li data-time="5:52">
+                                 Video 16
+                             </li>
+                             <li data-time="5:50">
+                                 Video 17
+                             </li>
+                             <li data-time="9:13">
+                                 Video 18
+                             </li>
+                             <li data-time="11:51">
+                                 Video 19
+                             </li>
+                             <li data-time="7:58">
+                                 Video 20
+                             </li>
+                             <li data-time="4:40">
+                                 Video 21
+                             </li>
+                             <li data-time="4:45">
+                                 Video 22
+                             </li>
+                             <li data-time="6:46">
+                                 Video 23
+                             </li>
+                             <li data-time="7:24">
+                                 Video 24
+                             </li>
+                             <li data-time="7:12">
+                                 Video 25
+                             </li>
+                             <li data-time="5:23">
+                                 Video 26
+                             </li>
+                             <li data-time="3:34">
+                                 Video 27
+                             </li>
+                             <li data-time="8:22">
+                                 Video 28
+                             </li>
+                             <li data-time="5:17">
+                                 Video 29
+                             </li>
+                             <li data-time="3:10">
+                                 Video 30
+                             </li>
+                             <li data-time="4:43">
+                                 Video 31
+                             </li>
+                             <li data-time="19:43">
+                                 Video 32
+                             </li>
+                             <li data-time="0:47">
+                                 Video 33
+                             </li>
+                             <li data-time="0:47">
+                                 Video 34
+                             </li>
+                             <li data-time="3:14">
+                                 Video 35
+                             </li>
+                             <li data-time="3:59">
+                                 Video 36
+                             </li>
+                             <li data-time="2:43">
+                                 Video 37
+                             </li>
+                             <li data-time="4:17">
+                                 Video 38
+                             </li>
+                             <li data-time="6:56">
+                                 Video 39
+                             </li>
+                             <li data-time="3:05">
+                                 Video 40
+                             </li>
+                             <li data-time="2:06">
+                                 Video 41
+                             </li>
+                             <li data-time="1:59">
+                                 Video 42
+                             </li>
+                             <li data-time="1:49">
+                                 Video 43
+                             </li>
+                             <li data-time="3:36">
+                                 Video 44
+                             </li>
+                             <li data-time="7:10">
+                                 Video 45
+                             </li>
+                             <li data-time="3:44">
+                                 Video 46
+                             </li>
+                             <li data-time="3:44">
+                                 Video 47
+                             </li>
+                             <li data-time="4:36">
+                                 Video 48
+                             </li>
+                             <li data-time="3:16">
+                                 Video 49
+                             </li>
+                             <li data-time="1:10">
+                                 Video 50
+                             </li>
+                             <li data-time="6:10">
+                                 Video 51
+                             </li>
+                             <li data-time="2:14">
+                                 Video 52
+                             </li>
+                             <li data-time="3:44">
+                                 Video 53
+                             </li>
+                             <li data-time="5:05">
+                                 Video 54
+                             </li>
+                             <li data-time="6:03">
+                                 Video 55
+                             </li>
+                             <li data-time="12:39">
+                                 Video 56
+                             </li>
+                             <li data-time="1:56">
+                                 Video 57
+                             </li>
+                             <li data-time="4:04">
+                                 Video 58
+                             </li>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-19">
+                     <h1 style="text-align:center"> Challenge 19 : Unreal Webcam Fun</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+
+                         The challenge is to create a webcam program.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_19">
+                         <div class="photobooth">
+                             <div class="controls">
+                                 <button id="take_photo_btn">Take Photo</button>
+                                 <div class="rgb">
+                                     <label for="rmin">Red Min:</label>
+                                     <input type="range" min=0 max=255 name="rmin">
+                                     <label for="rmax">Red Max:</label>
+                                     <input type="range" min=0 max=255 name="rmax">
+                                     <br>
+                                     <label for="gmin">Green Min:</label>
+                                     <input type="range" min=0 max=255 name="gmin">
+                                     <label for="gmax">Green Max:</label>
+                                     <input type="range" min=0 max=255 name="gmax">
+                                     <br>
+                                     <label for="bmin">Blue Min:</label>
+                                     <input type="range" min=0 max=255 name="bmin">
+                                     <label for="bmax">Blue Max:</label>
+                                     <input type="range" min=0 max=255 name="bmax">
+                                 </div>
+                             </div>
+
+                             <canvas class="photo"></canvas>
+                             <video class="player_challenge_19"></video>
+                             <div class="strip"></div>
+                         </div>
+
+                         <audio class="snap" src="../sound/snap.mp3" hidden></audio>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-20">
+                     <h1 style="text-align:center"> Challenge 20 : Native Speech Recognition </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The challenge is to detect spoken words and write them out.
+                     </p>
+                     <div class="container my-3 words challengeContainer" id="challenge_20">
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-21">
+                     <h1 style="text-align:center"> Challenge 21 : Geolocation based Speedometer and Compass</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The challenge is to retrieve the user's location (Due to limitations, the location will be shown on the map without a compass).
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_21">
+                         <div id="map" style="width: 500px; height: 400px;"></div>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-22">
+                     <h1 style="text-align:center"> Challenge 22 : Follow Along Link Highlighter</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+
+                         The challenge is to follow the links in the text and highlight them.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_22">
+                         <nav>
+                             <ul class="menu">
+                                 <li><a href="">Home</a></li>
+                                 <li><a href="">Order Status</a></li>
+                                 <li><a href="">Tweets</a></li>
+                                 <li><a href="">Read Our History</a></li>
+                                 <li><a href="">Contact Us</a></li>
+                             </ul>
+                         </nav>
+
+                         <div class="challenge_22-wrapper">
+                             <p>Lorem ipsum dolor sit amet, <a href="">consectetur</a> adipisicing elit. Est <a href="">explicabo</a> unde natus necessitatibus esse obcaecati distinctio, aut itaque, qui vitae!</p>
+                             <p>Aspernatur sapiente quae sint <a href="">soluta</a> modi, atque praesentium laborum pariatur earum <a href="">quaerat</a> cupiditate consequuntur facilis ullam dignissimos, aperiam quam veniam.</p>
+                             <p>Cum ipsam quod, incidunt sit ex <a href="">tempore</a> placeat maxime <a href="">corrupti</a> possimus <a href="">veritatis</a> ipsum fugit recusandae est doloremque? Hic, <a href="">quibusdam</a>, nulla.</p>
+                             <p>Esse quibusdam, ad, ducimus cupiditate <a href="">nulla</a>, quae magni odit <a href="">totam</a> ut consequatur eveniet sunt quam provident sapiente dicta neque quod.</p>
+                             <p>Aliquam <a href="">dicta</a> sequi culpa fugiat <a href="">consequuntur</a> pariatur optio ad minima, maxime <a href="">odio</a>, distinctio magni impedit tempore enim repellendus <a href="">repudiandae</a> quas!</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-23">
+                     <h1 style="text-align:center"> Challenge 23 : Speech Synthesis </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+
+                         The challenge is to create a speech synthesizer.
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_23">
+                         <div class="voiceinator">
+
+                             <h1>The Voiceinator 5000</h1>
+
+                             <select name="voice" id="voices">
+                                 <option value="">Select A Voice</option>
+                             </select>
+
+                             <label for="rate">Rate:</label>
+                             <input name="rate" type="range" min="0" max="3" value="1" step="0.1">
+
+                             <label for="pitch">Pitch:</label>
+
+                             <input name="pitch" type="range" min="0" max="2" step="0.1">
+                             <textarea name="text" placeholder="Enter the text...">Hello!</textarea>
+                             <button id="stop">Stop!</button>
+                             <button id="speak">Speak</button>
+
+                         </div>
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-24">
+                     <h1 style="text-align:center"> Challenge 24 : Sticky Nav</h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         The challenge is to create a sticky nav
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_24">
+                         <nav id="main">
+                             <ul>
+                                 <li class="logo"><a href="#">LOST.</a></li>
+                                 <li><a href="#">Home</a></li>
+                                 <li><a href="#">About</a></li>
+                                 <li><a href="#">Images</a></li>
+                                 <li><a href="#">Locations</a></li>
+                                 <li><a href="#">Maps</a></li>
+                             </ul>
+                         </nav>
+
+                         <div class="site-wrap">
+
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+
+                             <img src="http://unsplash.it/400/400" class="align-left slide-in">
+
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, deserunt facilis et iste corrupti omnis tenetur est. Iste ut est dicta dolor itaque adipisci, dolorum minima, veritatis earum provident error molestias. Ratione magni illo sint vel velit ut excepturi consectetur suscipit, earum modi accusamus voluptatem nostrum, praesentium numquam, reiciendis voluptas sit id quisquam. Consequatur in quis reprehenderit modi perspiciatis necessitatibus saepe, quidem, suscipit iure natus dignissimos ipsam, eligendi deleniti accusantium, rerum quibusdam fugit perferendis et optio recusandae sed ratione. Culpa, dolorum reprehenderit harum ab voluptas fuga, nisi eligendi natus maiores illum quas quos et aperiam aut doloremque optio maxime fugiat doloribus. Eum dolorum expedita quam, nesciunt</p>
+
+                             <img src="http://unsplash.it/400/400" class="align-right slide-in">
+
+                             <p> at provident praesentium atque quas rerum optio dignissimos repudiandae ullam illum quibusdam. Vel ad error quibusdam, illo ex totam placeat. Quos excepturi fuga, molestiae ea quisquam minus, ratione dicta consectetur officia omnis, doloribus voluptatibus? Veniam ipsum veritatis architecto, provident quas consequatur doloremque quam quidem earum expedita, ad delectus voluptatum, omnis praesentium nostrum qui aspernatur ea eaque adipisci et cumque ab? Ea voluptatum dolore itaque odio. Eius minima distinctio harum, officia ab nihil exercitationem. Tempora rem nemo nam temporibus molestias facilis minus ipsam quam doloribus consequatur debitis nesciunt tempore officiis aperiam quisquam, molestiae voluptates cum, fuga culpa. Distinctio accusamus quibusdam, tempore perspiciatis dolorum optio facere consequatur quidem ullam beatae architecto, ipsam sequi officiis dignissimos amet impedit natus necessitatibus tenetur repellendus dolor rem! Dicta dolorem, iure, facilis illo ex nihil ipsa amet officia, optio temporibus eum autem odit repellendus nisi. Possimus modi, corrupti error debitis doloribus dicta libero earum, sequi porro ut excepturi nostrum ea voluptatem nihil culpa? Ullam expedita eligendi obcaecati reiciendis velit provident omnis quas qui in corrupti est dolore facere ad hic, animi soluta assumenda consequuntur reprehenderit! Voluptate dolor nihil veniam laborum voluptas nisi pariatur sed optio accusantium quam consectetur, corrupti, sequi et consequuntur, excepturi doloremque. Tempore quis velit corporis neque fugit non sequi eaque rem hic. Facere, inventore, aspernatur. Accusantium modi atque, asperiores qui nobis soluta cumque suscipit excepturi possimus doloremque odit saepe perferendis temporibus molestiae nostrum voluptatum quis id sint quidem nesciunt culpa. Rerum labore dolor beatae blanditiis praesentium explicabo velit optio esse aperiam similique, voluptatem cum, maiores ipsa tempore. Reiciendis sed culpa atque inventore, nam ullam enim expedita consectetur id velit iusto alias vitae explicabo nemo neque odio reprehenderit soluta sint eaque. Aperiam, qui ut tenetur, voluptate doloremque officiis dicta quaerat voluptatem rerum natus magni. Eum amet autem dolor ullam.</p>
+
+
+
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maiores adipisci quibusdam repudiandae dolor vero placeat esse sit! Quibusdam saepe aperiam explicabo placeat optio, consequuntur nihil voluptatibus expedita quia vero perferendis, deserunt et incidunt eveniet temporibus doloremque possimus facilis. Possimus labore, officia dolore! Eaque ratione saepe, alias harum laboriosam deserunt laudantium blanditiis eum explicabo placeat reiciendis labore iste sint. Consectetur expedita dignissimos, non quos distinctio, eos rerum facilis eligendi. Asperiores laudantium, rerum ratione consequatur, culpa consectetur possimus atque ab tempore illum non dolor nesciunt. Neque, rerum. A vel non incidunt, quod doloremque dignissimos necessitatibus aliquid laboriosam architecto at cupiditate commodi expedita in, quae blanditiis. Deserunt labore sequi, repellat laboriosam est, doloremque culpa reiciendis tempore excepturi. Enim nostrum fugit itaque vel corporis ullam sed tenetur ipsa qui rem quam error sint, libero. Laboriosam rem, ratione. Autem blanditiis laborum neque repudiandae quam, cumque, voluptate veritatis itaque, placeat veniam ad nisi. Expedita, laborum reprehenderit ratione soluta velit natus, odit mollitia. Corporis rerum minima fugiat in nostrum. Assumenda natus cupiditate hic quidem ex, quas, amet ipsum esse dolore facilis beatae maxime qui inventore, iste? Maiores dignissimos dolore culpa debitis voluptatem harum, excepturi enim reiciendis, tempora ab ipsam illum aspernatur quasi qui porro saepe iure sunt eligendi tenetur quaerat ducimus quas sequi omnis aperiam suscipit! Molestiae obcaecati officiis quo, ratione eveniet, provident pariatur. Veniam quasi expedita distinctio, itaque molestiae sequi, dolorum nisi repellendus quia facilis iusto dignissimos nam? Tenetur fugit quos autem nihil, perspiciatis expedita enim tempore, alias ab maiores quis necessitatibus distinctio molestias eum, quidem. Delectus impedit quidem laborum, fugit vel neque quo, ipsam, quasi aspernatur quas odio nihil? Veniam amet reiciendis blanditiis quis reprehenderit repudiandae neque, ab ducimus, odit excepturi voluptate saepe ipsam. Voluptatem eum error voluptas porro officiis, amet! Molestias, fugit, ut! Tempore non magnam, amet, facere ducimus accusantium eos veritatis neque.</p>
+
+                             <img src="http://unsplash.it/400/400" class="align-right slide-in">
+
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maiores adipisci quibusdam repudiandae dolor vero placeat esse sit! Quibusdam saepe aperiam explicabo placeat optio, consequuntur nihil voluptatibus expedita quia vero perferendis, deserunt et incidunt eveniet temporibus doloremque possimus facilis. Possimus labore, officia dolore! Eaque ratione saepe, alias harum laboriosam deserunt laudantium blanditiis eum explicabo placeat reiciendis labore iste sint. Consectetur expedita dignissimos, non quos distinctio, eos rerum facilis eligendi. Asperiores laudantium, rerum ratione consequatur, culpa consectetur possimus atque ab tempore illum non dolor nesciunt. Neque, rerum. A vel non incidunt, quod doloremque dignissimos necessitatibus aliquid laboriosam architecto at cupiditate commodi expedita in, quae blanditiis. Deserunt labore sequi, repellat laboriosam est, doloremque culpa reiciendis tempore excepturi. Enim nostrum fugit itaque vel corporis ullam sed tenetur ipsa qui rem quam error sint, libero. Laboriosam rem, ratione. Autem blanditiis laborum neque repudiandae quam, cumque, voluptate veritatis itaque, placeat veniam ad nisi. Expedita, laborum reprehenderit ratione soluta velit natus, odit mollitia. Corporis rerum minima fugiat in nostrum. Assumenda natus cupiditate hic quidem ex, quas, amet ipsum esse dolore facilis beatae maxime qui inventore, iste? Maiores dignissimos dolore culpa debitis voluptatem harum, excepturi enim reiciendis, tempora ab ipsam illum aspernatur quasi qui porro saepe iure sunt eligendi tenetur quaerat ducimus quas sequi omnis aperiam suscipit! Molestiae obcaecati officiis quo, ratione eveniet, provident pariatur. Veniam quasi expedita distinctio, itaque molestiae sequi, dolorum nisi repellendus quia facilis iusto dignissimos nam? Tenetur fugit quos autem nihil, perspiciatis expedita enim tempore, alias ab maiores quis necessitatibus distinctio molestias eum, quidem. Delectus impedit quidem laborum, fugit vel neque quo, ipsam, quasi aspernatur quas odio nihil? Veniam amet reiciendis blanditiis quis reprehenderit repudiandae neque, ab ducimus, odit excepturi voluptate saepe ipsam. Voluptatem eum error voluptas porro officiis, amet! Molestias, fugit, ut! Tempore non magnam, amet, facere ducimus accusantium eos veritatis neque.</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maiores adipisci quibusdam repudiandae dolor vero placeat esse sit! Quibusdam saepe aperiam explicabo placeat optio, consequuntur nihil voluptatibus expedita quia vero perferendis, deserunt et incidunt eveniet temporibus doloremque possimus facilis. Possimus labore, officia dolore! Eaque ratione saepe, alias harum laboriosam deserunt laudantium blanditiis eum explicabo placeat reiciendis labore iste sint. Consectetur expedita dignissimos, non quos distinctio, eos rerum facilis eligendi. Asperiores laudantium, rerum ratione consequatur, culpa consectetur possimus atque ab tempore illum non dolor nesciunt. Neque, rerum. A vel non incidunt, quod doloremque dignissimos necessitatibus aliquid laboriosam architecto at cupiditate commodi expedita in, quae blanditiis. Deserunt labore sequi, repellat laboriosam est, doloremque culpa reiciendis tempore excepturi. Enim nostrum fugit itaque vel corporis ullam sed tenetur ipsa qui rem quam error sint, libero. Laboriosam rem, ratione. Autem blanditiis laborum neque repudiandae quam, cumque, voluptate veritatis itaque, placeat veniam ad nisi. Expedita, laborum reprehenderit ratione soluta velit natus, odit mollitia. Corporis rerum minima fugiat in nostrum. Assumenda natus cupiditate hic quidem ex, quas, amet ipsum esse dolore facilis beatae maxime qui inventore, iste? Maiores dignissimos dolore culpa debitis voluptatem harum, excepturi enim reiciendis, tempora ab ipsam illum aspernatur quasi qui porro saepe iure sunt eligendi tenetur quaerat ducimus quas sequi omnis aperiam suscipit! Molestiae obcaecati officiis quo, ratione eveniet, provident pariatur. Veniam quasi expedita distinctio, itaque molestiae sequi, dolorum nisi repellendus quia facilis iusto dignissimos nam? Tenetur fugit quos autem nihil, perspiciatis expedita enim tempore, alias ab maiores quis necessitatibus distinctio molestias eum, quidem. Delectus impedit quidem laborum, fugit vel neque quo, ipsam, quasi aspernatur quas odio nihil? Veniam amet reiciendis blanditiis quis reprehenderit repudiandae neque, ab ducimus, odit excepturi voluptate saepe ipsam. Voluptatem eum error voluptas porro officiis, amet! Molestias, fugit, ut! Tempore non magnam, amet, facere ducimus accusantium eos veritatis neque.</p>
+                         </div>
+
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-25">
+                     <h1 style="text-align:center"> Challenge  : </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_25">
+
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-26">
+                     <h1 style="text-align:center"> Challenge  : </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_26">
+
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-27">
+                     <h1 style="text-align:center"> Challenge  : </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_27">
+
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-28">
+                     <h1 style="text-align:center"> Challenge  : </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_28">
+
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-29">
+                     <h1 style="text-align:center"> Challenge  : </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_29">
+
+                     </div>
+                 </div>
+                 <div class="challenges" id="id-30">
+                     <h1 style="text-align:center"> Challenge  : </h1>
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                     </p>
+                     <div class="container my-3 challengeContainer" id="challenge_30">
+
+                     </div>
+                 </div>
+                 <div id="challengeCode_container">
+                     <p style="text-indent:1rem;margin-bottom:0;">
+                         JavaScript code:
+                     </p>
+                     <div class="container my-3 p-2" id="challengeCode">
+                     </div>
+                 </div>
+             </div>
+             <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+         </div>
+         <div class="col-sm-2 main-arrows" id="right-arrow-container"><p id="right-arrow">&#8680;</p></div>
+     </div>
 </body>
 </html>
 
