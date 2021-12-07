@@ -1241,4 +1241,8 @@ window.onload = function() {
       slider.scrollLeft = scrollLeft - (x - startX);
     });
   }
+
+  /*Video Speed Controller UI*/
+  if (current_page == 28) {
+  }
 };
