@@ -99,6 +99,11 @@
     display: none;
 }
 
+iframe {
+    height: 576px;
+    width: 100%;
+}
+
 html {
     height: 100%;
 }
