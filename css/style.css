@@ -1243,16 +1243,17 @@ textarea {
     box-shadow: 0 0 1px 3px rgba(0,0,0,0.1);
 }
 
-#challenge_28 .speed {
-    background: #efefef;
-    flex: 1;
-    display: flex;
-    align-items: flex-start;
-    margin: 10px;
-    border-radius: 50px;
-    box-shadow: 0 0 1px 3px rgba(0,0,0,0.1);
-    overflow: hidden;
-}
+    #challenge_28 .speed {
+        background: #efefef;
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+        margin: 10px;
+        border-radius: 50px;
+        box-shadow: 0 0 1px 3px rgba(0,0,0,0.1);
+        overflow: hidden;
+        cursor: pointer;
+    }
 
 #challenge_28 .speed-bar {
     width: 100%;
@@ -1264,4 +1265,5 @@ textarea {
     padding: 2px;
     color: white;
     height: 16.3%;
+    cursor:pointer;
 }
