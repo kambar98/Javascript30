@@ -1177,5 +1177,39 @@ window.onload = function() {
   }
   /*Stripe Follow Along Dropdown Navigation*/
   if (current_page == 26) {
+    const nav_li = document.querySelectorAll(".cool > li");
+    const background = document.querySelector(".dropdownBackground");
+    const nav = document.querySelector(".top");
+    nav_li.forEach(el => {
+      el.addEventListener("mouseenter", enterMouse);
+      el.addEventListener("mouseleave", leaveMouse);
+    });
+
+    function leaveMouse() {
+      this.classList.remove("trigger-enter", "trigger-enter-active");
+      background.classList.remove("open");
+    }
+
+    function enterMouse() {
+      this.classList.add("trigger-enter");
+      background.classList.add("open");
+      setTimeout(() => {
+        if (this.classList.contains("trigger-enter")) {
+          this.classList.add("trigger-enter-active");
+        }
+      }, 150);
+
+      const dropdown = this.querySelector(".dropdown");
+      background.style.width = dropdown.offsetWidth + "px";
+      background.style.height = dropdown.offsetHeight + "px";
+      background.style.top =
+        dropdown.getBoundingClientRect().top -
+        nav.getBoundingClientRect().top +
+        "px";
+      background.style.left =
+        dropdown.getBoundingClientRect().left -
+        nav.getBoundingClientRect().left +
+        "px";
+    }
   }
 };
