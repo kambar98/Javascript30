@@ -1244,5 +1244,29 @@ window.onload = function() {
 
   /*Video Speed Controller UI*/
   if (current_page == 28) {
+    const speed_controller = document.querySelector(".speed");
+    const speed_bar = document.querySelector(".speed-bar");
+    const video = document.querySelector(".flex");
+    let isDown = false;
+    speed_controller.addEventListener("mousedown", () => {
+      isDown = true;
+    });
+    speed_controller.addEventListener("mouseup", () => {
+      isDown = false;
+    });
+    speed_controller.addEventListener("mouseleave", () => {
+      isDown = false;
+    });
+    speed_controller.addEventListener("mousemove", function(event) {
+      if (!isDown) return;
+      event.preventDefault();
+      let y = event.pageY - this.offsetTop;
+      let multiplier = parseFloat(
+        y / speed_controller.offsetHeight * 4
+      ).toFixed(2);
+      speed_bar.innerText = multiplier + "x";
+      speed_bar.style.height = multiplier / 4 * 100 + "%";
+      video.playbackRate = multiplier;
+    });
   }
 };
