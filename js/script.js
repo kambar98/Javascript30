@@ -1212,4 +1212,8 @@ window.onload = function() {
         "px";
     }
   }
+
+  /*Click and Drag to Scroll*/
+  if (current_page == 27) {
+  }
 };
