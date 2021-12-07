@@ -1215,5 +1215,30 @@ window.onload = function() {
 
   /*Click and Drag to Scroll*/
   if (current_page == 27) {
+    const slider = document.querySelector(".items");
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener("mousedown", event => {
+      isDown = true;
+      slider.classList.add("active");
+      startX = event.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener("mouseleave", () => {
+      isDown = false;
+      slider.classList.remove("active");
+    });
+    slider.addEventListener("mouseup", () => {
+      isDown = false;
+      slider.classList.remove("active");
+    });
+    slider.addEventListener("mousemove", event => {
+      if (!isDown) return;
+      event.preventDefault();
+      let x = event.pageX - slider.offsetLeft;
+      slider.scrollLeft = scrollLeft - (x - startX);
+    });
   }
 };
