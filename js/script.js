@@ -1269,4 +1269,7 @@ window.onload = function() {
       video.playbackRate = multiplier;
     });
   }
+  /*Countdown Clock*/
+  if (current_page == 29) {
+  }
 };
