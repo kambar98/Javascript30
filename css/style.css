@@ -1357,7 +1357,7 @@ textarea {
 /*Whack A Mole Game*/
 #challenge_30 h1 {
     text-align: center;
-    font-size: 10rem;
+    font-size: 6rem;
     line-height: 1;
     margin-bottom: 0;
 }
@@ -1370,8 +1370,8 @@ textarea {
 }
 
 #challenge_30 .game {
-    width: 600px;
-    height: 400px;
+    width: auto;
+    height: 600px;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
