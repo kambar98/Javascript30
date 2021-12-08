@@ -1337,5 +1337,64 @@ window.onload = function() {
   }
   /*Whack A Mole Game*/
   if (current_page == 30) {
+    const holes = document.querySelectorAll(".hole");
+    const score = document.querySelector(".score");
+    const moles = document.querySelectorAll(".mole");
+    const startBtn = document.querySelector("#startGame");
+    let last_hole;
+    let timeEnd;
+    let mole_score = 0;
+    let previous_mole;
+
+    startBtn.addEventListener("click", playGame);
+    moles.forEach(el => el.addEventListener("click", clickedMole));
+    function randomTime(min, max) {
+      return Math.round(Math.random() * (max - min));
+    }
+    function randomHole() {
+      const id = Math.floor(Math.random() * holes.length);
+      const hole = holes[id];
+      if (last_hole == hole) {
+        return randomHole();
+      } else {
+        last_hole = hole;
+      }
+      return hole;
+    }
+    function moleJump() {
+      const time = randomTime(300, 1000);
+      const hole = randomHole();
+      hole.classList.add("up");
+      setTimeout(() => {
+        hole.classList.remove("up");
+        if (!timeEnd) {
+          moleJump();
+        }
+      }, time);
+    }
+    function playGame() {
+      score.innerText = 0;
+      if (!timeEnd) {
+        moleJump();
+        timeout = window.setTimeout(() => {
+          timeEnd = true;
+          mole_score = 0;
+        }, 10000);
+      } else {
+        timeEnd = false;
+        window.clearTimeout(timeout);
+        playGame();
+        mole_score = 0;
+      }
+    }
+    function clickedMole() {
+      if (previous_mole == this) {
+        return;
+      } else {
+        previous_mole = this;
+        mole_score++;
+        score.innerText = mole_score;
+      }
+    }
   }
 };
