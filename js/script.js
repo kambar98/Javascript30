@@ -1271,5 +1271,68 @@ window.onload = function() {
   }
   /*Countdown Clock*/
   if (current_page == 29) {
+    const buttons = document.querySelectorAll(".timer__button");
+    const remaining_time = document.querySelector(".display__time-left");
+    const input_time = document.querySelector("#custom");
+    const end_time = document.querySelector(".display__end-time");
+    var chosen_timer;
+    var started = false;
+
+    input_time.addEventListener("submit", startTimer);
+    buttons.forEach(el => {
+      el.addEventListener("click", startTimer);
+    });
+
+    function startTimer(event) {
+      event.preventDefault();
+      let current_time = new Date().getTime();
+      if (this.getAttribute("name") == "customForm") {
+        chosen_timer = this.children[0].value * 60 * 1000;
+      } else {
+        chosen_timer = this.getAttribute("data-time") * 1000;
+      }
+      let future_time = new Date(current_time + chosen_timer);
+
+      if (future_time.getMinutes() < 10) {
+        end_time.innerText =
+          "Be back at " +
+          future_time.getHours() +
+          ":0" +
+          future_time.getMinutes();
+      } else {
+        end_time.innerText =
+          "Be back at " +
+          future_time.getHours() +
+          ":" +
+          future_time.getMinutes();
+      }
+      if (!started) {
+        count = setInterval(Timer, 1000);
+        started = true;
+      } else {
+        clearInterval(count);
+        count = setInterval(Timer, 1000);
+      }
+    }
+    function Timer() {
+      chosen_timer = chosen_timer - 1000;
+      let minutes = new Date(chosen_timer).getMinutes();
+      let seconds = new Date(chosen_timer).getSeconds();
+      if (minutes < 10) {
+        remaining_time.innerText = "0" + minutes + ":" + seconds;
+        if (seconds < 10) {
+          remaining_time.innerText = "0" + minutes + ":0" + seconds;
+        } else {
+          remaining_time.innerText = "0" + minutes + ":" + seconds;
+        }
+      } else {
+        remaining_time.innerText = minutes + ":" + seconds;
+        if (seconds < 10) {
+          remaining_time.innerText = minutes + ":0" + seconds;
+        } else {
+          remaining_time.innerText = minutes + ":" + seconds;
+        }
+      }
+    }
   }
 };
