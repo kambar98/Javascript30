@@ -1335,4 +1335,7 @@ window.onload = function() {
       }
     }
   }
+  /*Whack A Mole Game*/
+  if (current_page == 30) {
+  }
 };
